@@ -119,6 +119,41 @@ impl<C: ColorProvider> ButtonStyles<C> {
         self
     }
 
+    /// Set variant from string (convenience method)
+    ///
+    /// Maps common string variants to ButtonVariant enum.
+    /// Supports: "primary", "secondary", "success", "warning", "error", "ghost", "link"
+    /// Also supports aliases: "outline" -> Secondary, "danger" -> Error, "water" -> Primary
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use jupiter_design_system::builders::button::ButtonStyles;
+    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    ///
+    /// let colors = WaterWellnessColors::default();
+    /// let classes = ButtonStyles::new(colors)
+    ///     .variant_str("primary")
+    ///     .size_str("lg")
+    ///     .classes();
+    /// ```
+    pub fn variant_str(mut self, variant: &str) -> Self {
+        self.variant = match variant {
+            "primary" => ButtonVariant::Primary,
+            "secondary" => ButtonVariant::Secondary,
+            "outline" => ButtonVariant::Secondary, // alias
+            "success" => ButtonVariant::Success,
+            "warning" => ButtonVariant::Warning,
+            "error" => ButtonVariant::Error,
+            "danger" => ButtonVariant::Error, // alias
+            "ghost" => ButtonVariant::Ghost,
+            "link" => ButtonVariant::Link,
+            "water" => ButtonVariant::Primary, // Water & Wellness specific alias
+            _ => ButtonVariant::Primary,       // fallback to primary
+        };
+        self
+    }
+
     /// Set extra small size (shorthand)
     pub fn extra_small(mut self) -> Self {
         self.size = Size::XSmall;
@@ -152,6 +187,36 @@ impl<C: ColorProvider> ButtonStyles<C> {
     /// Set size explicitly
     pub fn size(mut self, size: Size) -> Self {
         self.size = size;
+        self
+    }
+
+    /// Set size from string (convenience method)
+    ///
+    /// Maps common string sizes to Size enum.
+    /// Supports: "xs", "sm", "md", "lg", "xl"
+    /// Also supports aliases: "extra_small" -> XSmall, "small" -> Small, etc.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use jupiter_design_system::builders::button::ButtonStyles;
+    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    ///
+    /// let colors = WaterWellnessColors::default();
+    /// let classes = ButtonStyles::new(colors)
+    ///     .variant_str("primary")
+    ///     .size_str("lg")
+    ///     .classes();
+    /// ```
+    pub fn size_str(mut self, size: &str) -> Self {
+        self.size = match size {
+            "xs" | "extra_small" => Size::XSmall,
+            "sm" | "small" => Size::Small,
+            "md" | "medium" => Size::Medium,
+            "lg" | "large" => Size::Large,
+            "xl" | "extra_large" => Size::XLarge,
+            _ => Size::Medium, // fallback to medium
+        };
         self
     }
 
