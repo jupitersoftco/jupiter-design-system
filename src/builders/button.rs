@@ -250,6 +250,35 @@ impl<C: ColorProvider> ButtonStyles<C> {
         self
     }
 
+    /// Set state from string (convenience method)
+    ///
+    /// Maps common string states to ButtonState enum.
+    /// Supports: "default", "hover", "active", "disabled", "loading"
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use jupiter_design_system::builders::button::ButtonStyles;
+    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    ///
+    /// let colors = WaterWellnessColors::default();
+    /// let classes = ButtonStyles::new(colors)
+    ///     .variant_str("primary")
+    ///     .state_str("loading")
+    ///     .classes();
+    /// ```
+    pub fn state_str(mut self, state: &str) -> Self {
+        self.state = match state {
+            "default" => ButtonState::Default,
+            "hover" => ButtonState::Hover,
+            "active" => ButtonState::Active,
+            "disabled" => ButtonState::Disabled,
+            "loading" => ButtonState::Loading,
+            _ => ButtonState::Default, // fallback to default
+        };
+        self
+    }
+
     /// Set full width
     pub fn full_width(mut self) -> Self {
         self.full_width = true;
@@ -446,6 +475,54 @@ impl<C: ColorProvider> ButtonStyles<C> {
 /// Convenience function to create button styles
 pub fn button_styles<C: ColorProvider>(color_provider: C) -> ButtonStyles<C> {
     ButtonStyles::new(color_provider)
+}
+
+/// One-shot convenience function to create button classes from strings
+///
+/// This completely replaces the need for ButtonUtils::classes() and similar utility functions.
+/// Perfect for component libraries that need to map string props to CSS classes.
+///
+/// # Examples
+///
+/// ```rust
+/// use jupiter_design_system::builders::button::button_classes_from_strings;
+/// use jupiter_design_system::core::color::WaterWellnessColors;
+///
+/// let colors = WaterWellnessColors::default();
+/// let classes = button_classes_from_strings(
+///     colors,
+///     "primary",
+///     "lg",
+///     false,     // disabled
+///     true,      // loading
+///     false,     // full_width
+/// );
+/// ```
+pub fn button_classes_from_strings<C: ColorProvider>(
+    color_provider: C,
+    variant: &str,
+    size: &str,
+    disabled: bool,
+    loading: bool,
+    full_width: bool,
+) -> String {
+    let mut builder = ButtonStyles::new(color_provider)
+        .variant_str(variant)
+        .size_str(size);
+
+    // Set state based on disabled/loading flags
+    if loading {
+        builder = builder.loading();
+    } else if disabled {
+        builder = builder.disabled();
+    }
+
+    // Apply conditional modifiers
+    if full_width {
+        builder = builder.full_width();
+    }
+
+    builder.classes()
 }
 
 #[cfg(test)]
