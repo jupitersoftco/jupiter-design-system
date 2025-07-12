@@ -19,7 +19,3 @@ default = ["dioxus"]
 dioxus = ["dep:dioxus"]
 validation = []
 dev-tools = ["validation", "serde/derive"]
-
-[[example]]
-name = "basic_usage"
-required-features = ["dioxus"]

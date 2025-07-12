@@ -7,13 +7,15 @@
 //!
 //! ```rust
 //! use jupiter_design_system::prelude::*;
+//! use jupiter_design_system::core::color::{WaterWellnessColors, ColorProvider};
 //!
-//! // Create a button with design system
-//! let button = Button::new()
-//!     .variant(ButtonVariant::Primary)
-//!     .size(Size::Medium)
-//!     .theme(WaterWellnessTheme::default())
-//!     .build();
+//! // Create a theme and use colors
+//! let theme = WaterWellnessTheme::default();
+//! let colors = WaterWellnessColors::new();
+//!
+//! // Get CSS classes for styling
+//! let primary_text = colors.text_class(Color::Primary);
+//! let primary_bg = colors.bg_class(Color::Primary);
 //! ```
 
 pub mod components;

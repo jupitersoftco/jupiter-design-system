@@ -2,7 +2,7 @@
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::core::color::{Color, ColorPalette, ColorProvider, WaterWellnessColors};
 
     #[test]
     fn test_color_enum_variants() {
