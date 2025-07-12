@@ -9,6 +9,8 @@
 pub mod button;
 pub mod card;
 pub mod layout;
+pub mod product;
+pub mod selection;
 pub mod state;
 pub mod text;
 
@@ -22,6 +24,14 @@ pub use button::{
 pub use card::{card_classes_from_strings, card_styles, CardStyles};
 pub use layout::{
     card_content_styles, card_footer_styles, card_header_styles, layout_styles, LayoutStyles,
+};
+pub use product::{
+    featured_product_styles, product_preview_styles, product_showcase_styles, product_styles,
+    product_tile_styles, ProductBuilder,
+};
+pub use selection::{
+    chip_selection_styles, filter_selection_styles, selection_classes_from_strings,
+    selection_styles, tab_selection_styles, SelectionStyles,
 };
 pub use state::{
     empty_state_styles, error_state_styles, loading_state_styles, state_classes_from_strings,

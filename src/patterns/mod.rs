@@ -9,6 +9,8 @@ pub mod card;
 pub mod focus;
 pub mod interactions;
 pub mod layout;
+pub mod product;
+pub mod selection;
 pub mod states;
 pub mod typography;
 
@@ -19,5 +21,7 @@ pub use card::*;
 pub use focus::*;
 pub use interactions::*;
 pub use layout::*;
+pub use product::*;
+pub use selection::*;
 pub use states::*;
 pub use typography::*;
