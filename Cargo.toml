@@ -1,0 +1,25 @@
+[package]
+name = "jupiter-design-system"
+version = "0.1.0"
+edition = "2021"
+description = "A trait-based design system for Jupiter Startups applications"
+keywords = ["design-system", "ui", "tailwind", "dioxus"]
+categories = ["web-programming", "gui"]
+
+[dependencies]
+dioxus = { version = "0.4", optional = true }
+serde = { version = "1.0", features = ["derive"] }
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["full"] }
+serde_json = "1.0"
+
+[features]
+default = ["dioxus"]
+dioxus = ["dep:dioxus"]
+validation = []
+dev-tools = ["validation", "serde/derive"]
+
+[[example]]
+name = "basic_usage"
+required-features = ["dioxus"]
