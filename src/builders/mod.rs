@@ -7,8 +7,10 @@
 //! being tied to any specific component implementation.
 
 pub mod button;
+pub mod card;
 
 // Re-export commonly used items
 pub use button::{
     button_classes_from_strings, button_styles, ButtonState, ButtonStyles, ButtonVariant,
 };
+pub use card::{card_classes_from_strings, card_styles, CardStyles};
