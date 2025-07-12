@@ -3,11 +3,8 @@
 //! This example demonstrates how to use the styling utility ButtonStyles
 //! to generate CSS classes for different button variants and states.
 
-use jupiter_design_system::builders::button::{
-    button_styles, ButtonState, ButtonStyles, ButtonVariant,
-};
+use jupiter_design_system::builders::button::{button_styles, ButtonStyles};
 use jupiter_design_system::core::color::WaterWellnessColors;
-use jupiter_design_system::prelude::*;
 
 fn main() {
     println!("🔲 Jupiter Design System - Button Styling Example");

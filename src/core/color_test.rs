@@ -7,8 +7,7 @@ mod tests {
     #[test]
     fn test_color_enum_variants() {
         // Test that all color variants exist
-        let colors = vec![
-            Color::Primary,
+        let colors = [Color::Primary,
             Color::Secondary,
             Color::Success,
             Color::Warning,
@@ -25,8 +24,7 @@ mod tests {
             Color::Interactive,
             Color::InteractiveHover,
             Color::InteractiveActive,
-            Color::InteractiveDisabled,
-        ];
+            Color::InteractiveDisabled];
 
         assert_eq!(colors.len(), 18);
     }

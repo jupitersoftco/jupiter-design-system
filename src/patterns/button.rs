@@ -6,8 +6,7 @@
 use crate::core::color::ColorProvider;
 use crate::patterns::{
     ActionContext, ActionHierarchy, ActionIntent, ActionSemantics, FocusBehavior, FocusManagement,
-    InteractionIntensity, InteractiveElement, InteractiveState, KeyboardPattern,
-    ScreenReaderPattern,
+    InteractiveElement,
 };
 
 /// Complete button pattern combining all abstract concepts
@@ -50,7 +49,7 @@ use crate::patterns::{
 ///     .classes();
 /// ```
 #[derive(Debug, Clone)]
-pub struct ButtonPattern<C: ColorProvider> {
+pub struct ButtonPattern<C: ColorProvider + Clone> {
     // Core state
     disabled: bool,
     loading: bool,
@@ -63,10 +62,11 @@ pub struct ButtonPattern<C: ColorProvider> {
 
     // Custom overrides
     custom_classes: Vec<String>,
+    #[allow(dead_code)]
     color_provider: C,
 }
 
-impl<C: ColorProvider> ButtonPattern<C> {
+impl<C: ColorProvider + Clone> ButtonPattern<C> {
     /// Create a new button pattern with sensible defaults
     pub fn new(color_provider: C) -> Self {
         Self {
@@ -362,12 +362,12 @@ pub struct ButtonSemanticInfo {
 // === Convenience Functions ===
 
 /// Create a button pattern
-pub fn button_pattern<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
+pub fn button_pattern<C: ColorProvider + Clone>(color_provider: C) -> ButtonPattern<C> {
     ButtonPattern::new(color_provider)
 }
 
 /// Create a primary button pattern
-pub fn primary_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
+pub fn primary_button<C: ColorProvider + Clone>(color_provider: C) -> ButtonPattern<C> {
     ButtonPattern::new(color_provider)
         .primary_action()
         .primary_prominence()
@@ -375,7 +375,7 @@ pub fn primary_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
 }
 
 /// Create a secondary button pattern
-pub fn secondary_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
+pub fn secondary_button<C: ColorProvider + Clone>(color_provider: C) -> ButtonPattern<C> {
     ButtonPattern::new(color_provider)
         .secondary_action()
         .standard_prominence()
@@ -383,7 +383,7 @@ pub fn secondary_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C>
 }
 
 /// Create a destructive button pattern
-pub fn destructive_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
+pub fn destructive_button<C: ColorProvider + Clone>(color_provider: C) -> ButtonPattern<C> {
     ButtonPattern::new(color_provider)
         .destructive_action()
         .standard_prominence()
@@ -391,7 +391,7 @@ pub fn destructive_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<
 }
 
 /// Create a hero CTA button pattern
-pub fn hero_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
+pub fn hero_button<C: ColorProvider + Clone>(color_provider: C) -> ButtonPattern<C> {
     ButtonPattern::new(color_provider)
         .primary_action()
         .hero_prominence()
@@ -400,7 +400,7 @@ pub fn hero_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
 }
 
 /// Create a navigation button pattern
-pub fn navigation_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
+pub fn navigation_button<C: ColorProvider + Clone>(color_provider: C) -> ButtonPattern<C> {
     ButtonPattern::new(color_provider)
         .navigation_action()
         .tertiary_prominence()
@@ -409,7 +409,7 @@ pub fn navigation_button<C: ColorProvider>(color_provider: C) -> ButtonPattern<C
 }
 
 /// Create a link that acts like a button
-pub fn button_link<C: ColorProvider>(color_provider: C) -> ButtonPattern<C> {
+pub fn button_link<C: ColorProvider + Clone>(color_provider: C) -> ButtonPattern<C> {
     ButtonPattern::new(color_provider)
         .secondary_action()
         .inline_context()

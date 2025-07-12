@@ -377,14 +377,7 @@ impl<C: ColorProvider> ButtonStyles<C> {
         let custom_classes = self.custom_classes.join(" ");
 
         format!(
-            "{} {} {} {} {} {} {}",
-            base_classes,
-            size_classes,
-            variant_classes,
-            state_classes,
-            width_classes,
-            icon_classes,
-            custom_classes
+            "{base_classes} {size_classes} {variant_classes} {state_classes} {width_classes} {icon_classes} {custom_classes}"
         )
         .split_whitespace()
         .collect::<Vec<&str>>()
@@ -411,15 +404,18 @@ impl<C: ColorProvider> ButtonStyles<C> {
     /// Get variant-specific classes
     fn get_variant_classes(&self) -> String {
         match self.variant {
-            ButtonVariant::Primary => format!(
-                "{} {} {}",
-                self.color_provider.bg_class(Color::Primary),
-                self.color_provider.text_class(Color::TextInverse),
-                format!(
+            ButtonVariant::Primary => {
+                let hover_bg = format!(
                     "hover:{}",
                     self.color_provider.bg_class(Color::InteractiveHover)
+                );
+                format!(
+                    "{} {} {}",
+                    self.color_provider.bg_class(Color::Primary),
+                    self.color_provider.text_class(Color::TextInverse),
+                    hover_bg
                 )
-            ),
+            }
             ButtonVariant::Secondary => format!(
                 "{} {} {} {}",
                 self.color_provider.bg_class(Color::Surface),
@@ -445,12 +441,15 @@ impl<C: ColorProvider> ButtonStyles<C> {
                 self.color_provider.text_class(Color::TextInverse),
                 "hover:bg-red-600"
             ),
-            ButtonVariant::Ghost => format!(
-                "{} {} {}",
-                "bg-transparent",
-                self.color_provider.text_class(Color::TextPrimary),
-                format!("hover:{}", self.color_provider.bg_class(Color::Background))
-            ),
+            ButtonVariant::Ghost => {
+                let hover_bg = format!("hover:{}", self.color_provider.bg_class(Color::Background));
+                format!(
+                    "{} {} {}",
+                    "bg-transparent",
+                    self.color_provider.text_class(Color::TextPrimary),
+                    hover_bg
+                )
+            }
             ButtonVariant::Link => format!(
                 "{} {} {}",
                 "bg-transparent",

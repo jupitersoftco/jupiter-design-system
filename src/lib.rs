@@ -29,7 +29,13 @@ pub mod utils;
 // Re-export commonly used items
 pub use crate::builders::*;
 pub use crate::core::*;
-pub use crate::patterns::*;
+pub use crate::patterns::{
+    action_semantics, button_link, button_pattern, destructive_button, focus_management,
+    hero_button, interactive_element, navigation_button, primary_button, secondary_button,
+    ActionContext, ActionHierarchy, ActionIntent, ActionSemantics, ButtonPattern,
+    ButtonSemanticInfo, FocusBehavior, FocusManagement, InteractionIntensity, InteractiveElement,
+    InteractiveState, KeyboardPattern, ScreenReaderPattern,
+};
 pub use crate::themes::*;
 pub use crate::utils::*;
 
@@ -41,7 +47,8 @@ pub mod prelude {
     pub use crate::core::color::{ColorProvider, WaterWellnessColors};
     pub use crate::core::{Breakpoint, Color, Size, Spacing, Typography};
     pub use crate::patterns::{
-        action_semantics, focus_management, interactive_element, ActionIntent, ActionSemantics,
+        action_semantics, destructive_button, focus_management, hero_button, interactive_element,
+        primary_button, secondary_button, ActionIntent, ActionSemantics, ButtonPattern,
         FocusManagement, InteractiveElement, InteractiveState,
     };
     pub use crate::themes::{Theme, WaterWellnessTheme};
@@ -50,8 +57,6 @@ pub mod prelude {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-
     #[test]
     fn test_prelude_imports() {
         // Basic smoke test to ensure prelude exports work

@@ -11,6 +11,7 @@ pub trait Theme {
 /// Water & Wellness theme
 #[derive(Debug, Clone, Default)]
 pub struct WaterWellnessTheme {
+    #[allow(dead_code)]
     colors: WaterWellnessColors,
 }
 
