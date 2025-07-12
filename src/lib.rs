@@ -33,7 +33,9 @@ pub use crate::utils::*;
 
 /// Common imports for everyday usage
 pub mod prelude {
-    pub use crate::builders::{button_styles, ButtonState, ButtonStyles, ButtonVariant};
+    pub use crate::builders::{
+        button_classes_from_strings, button_styles, ButtonState, ButtonStyles, ButtonVariant,
+    };
     pub use crate::core::color::{ColorProvider, WaterWellnessColors};
     pub use crate::core::{Breakpoint, Color, Size, Spacing, Typography};
     pub use crate::themes::{Theme, WaterWellnessTheme};

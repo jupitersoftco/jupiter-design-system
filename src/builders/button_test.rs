@@ -2,7 +2,9 @@
 
 #[cfg(test)]
 mod tests {
-    use crate::builders::button::{button_styles, ButtonState, ButtonStyles, ButtonVariant};
+    use crate::builders::button::{
+        button_classes_from_strings, button_styles, ButtonState, ButtonStyles, ButtonVariant,
+    };
     use crate::core::color::WaterWellnessColors;
 
     fn create_test_colors() -> WaterWellnessColors {
