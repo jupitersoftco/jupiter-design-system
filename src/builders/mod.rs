@@ -9,6 +9,4 @@
 pub mod button;
 
 // Re-export commonly used items
-pub use button::{
-    button_styles, button_styles_with_custom, ButtonState, ButtonStyles, ButtonVariant,
-};
+pub use button::{button_styles, ButtonState, ButtonStyles, ButtonVariant};

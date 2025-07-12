@@ -383,14 +383,6 @@ pub fn button_styles<C: ColorProvider>(color_provider: C) -> ButtonStyles<C> {
     ButtonStyles::new(color_provider)
 }
 
-/// Convenience function to create button styles with custom classes
-pub fn button_styles_with_custom<C: ColorProvider>(
-    color_provider: C,
-    custom_classes: impl Into<String>,
-) -> ButtonStyles<C> {
-    ButtonStyles::new(color_provider).custom_classes(custom_classes)
-}
-
 #[cfg(test)]
 #[path = "button_test.rs"]
 mod button_test;

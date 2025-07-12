@@ -2,9 +2,7 @@
 
 #[cfg(test)]
 mod tests {
-    use crate::builders::button::{
-        button_styles, button_styles_with_custom, ButtonState, ButtonStyles, ButtonVariant,
-    };
+    use crate::builders::button::{button_styles, ButtonState, ButtonStyles, ButtonVariant};
     use crate::core::color::WaterWellnessColors;
 
     fn create_test_colors() -> WaterWellnessColors {
@@ -285,9 +283,10 @@ mod tests {
     }
 
     #[test]
-    fn test_button_styles_with_custom_convenience() {
+    fn test_button_styles_convenience_with_custom() {
         let colors = create_test_colors();
-        let classes = button_styles_with_custom(colors, "shadow-xl transform")
+        let classes = button_styles(colors)
+            .custom_classes("shadow-xl transform")
             .primary()
             .large()
             .classes();

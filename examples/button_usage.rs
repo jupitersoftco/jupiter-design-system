@@ -4,7 +4,7 @@
 //! to generate CSS classes for different button variants and states.
 
 use jupiter_design_system::builders::button::{
-    button_styles, button_styles_with_custom, ButtonState, ButtonStyles, ButtonVariant,
+    button_styles, ButtonState, ButtonStyles, ButtonVariant,
 };
 use jupiter_design_system::core::color::WaterWellnessColors;
 use jupiter_design_system::prelude::*;
@@ -158,7 +158,8 @@ fn main() {
         .classes();
     println!("  Quick Button: {}", quick_button);
 
-    let button_with_custom = button_styles_with_custom(colors.clone(), "animate-pulse")
+    let button_with_custom = button_styles(colors.clone())
+        .custom_classes("animate-pulse")
         .success()
         .medium()
         .classes();
