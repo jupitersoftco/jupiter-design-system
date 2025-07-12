@@ -1,17 +1,17 @@
 //! Button usage example for the Jupiter Design System
 //!
-//! This example demonstrates how to use the trait-based Button component
-//! builder to generate CSS classes for different button variants and states.
+//! This example demonstrates how to use the styling utility ButtonStyles
+//! to generate CSS classes for different button variants and states.
 
-use jupiter_design_system::components::button::{
-    Button, ButtonBuilder, ButtonState, ButtonVariant,
+use jupiter_design_system::builders::button::{
+    button_styles, button_styles_with_custom, ButtonState, ButtonStyles, ButtonVariant,
 };
-use jupiter_design_system::core::color::{ColorProvider, WaterWellnessColors};
+use jupiter_design_system::core::color::WaterWellnessColors;
 use jupiter_design_system::prelude::*;
 
 fn main() {
-    println!("🔲 Jupiter Design System - Button Usage Example");
-    println!("===============================================");
+    println!("🔲 Jupiter Design System - Button Styling Example");
+    println!("================================================");
 
     // Create a color provider
     let colors = WaterWellnessColors::new();
@@ -19,83 +19,108 @@ fn main() {
 
     // Example 1: Basic button variants
     println!("\n🎯 Basic Button Variants:");
-    let primary = Button::primary(colors.clone()).build();
+    let primary = ButtonStyles::new(colors.clone()).primary().classes();
     println!("  Primary: {}", primary);
 
-    let secondary = Button::secondary(colors.clone()).build();
+    let secondary = ButtonStyles::new(colors.clone()).secondary().classes();
     println!("  Secondary: {}", secondary);
 
-    let success = Button::success(colors.clone()).build();
+    let success = ButtonStyles::new(colors.clone()).success().classes();
     println!("  Success: {}", success);
 
-    let warning = Button::warning(colors.clone()).build();
+    let warning = ButtonStyles::new(colors.clone()).warning().classes();
     println!("  Warning: {}", warning);
 
-    let error = Button::error(colors.clone()).build();
+    let error = ButtonStyles::new(colors.clone()).error().classes();
     println!("  Error: {}", error);
 
-    let ghost = Button::ghost(colors.clone()).build();
+    let ghost = ButtonStyles::new(colors.clone()).ghost().classes();
     println!("  Ghost: {}", ghost);
 
-    let link = Button::link(colors.clone()).build();
+    let link = ButtonStyles::new(colors.clone()).link().classes();
     println!("  Link: {}", link);
 
     // Example 2: Different sizes
     println!("\n📏 Button Sizes:");
-    let xs = Button::primary(colors.clone()).size(Size::XSmall).build();
+    let xs = ButtonStyles::new(colors.clone())
+        .primary()
+        .extra_small()
+        .classes();
     println!("  XSmall: {}", xs);
 
-    let sm = Button::primary(colors.clone()).size(Size::Small).build();
+    let sm = ButtonStyles::new(colors.clone())
+        .primary()
+        .small()
+        .classes();
     println!("  Small: {}", sm);
 
-    let md = Button::primary(colors.clone()).size(Size::Medium).build();
+    let md = ButtonStyles::new(colors.clone())
+        .primary()
+        .medium()
+        .classes();
     println!("  Medium: {}", md);
 
-    let lg = Button::primary(colors.clone()).size(Size::Large).build();
+    let lg = ButtonStyles::new(colors.clone())
+        .primary()
+        .large()
+        .classes();
     println!("  Large: {}", lg);
 
-    let xl = Button::primary(colors.clone()).size(Size::XLarge).build();
+    let xl = ButtonStyles::new(colors.clone())
+        .primary()
+        .extra_large()
+        .classes();
     println!("  XLarge: {}", xl);
 
     // Example 3: Button states
     println!("\n🎭 Button States:");
-    let hover = Button::primary(colors.clone())
-        .state(ButtonState::Hover)
-        .build();
+    let hover = ButtonStyles::new(colors.clone())
+        .primary()
+        .hover()
+        .classes();
     println!("  Hover: {}", hover);
 
-    let active = Button::primary(colors.clone())
-        .state(ButtonState::Active)
-        .build();
+    let active = ButtonStyles::new(colors.clone())
+        .primary()
+        .active()
+        .classes();
     println!("  Active: {}", active);
 
-    let disabled = Button::primary(colors.clone())
-        .state(ButtonState::Disabled)
-        .build();
+    let disabled = ButtonStyles::new(colors.clone())
+        .primary()
+        .disabled()
+        .classes();
     println!("  Disabled: {}", disabled);
 
-    let loading = Button::primary(colors.clone())
-        .state(ButtonState::Loading)
-        .build();
+    let loading = ButtonStyles::new(colors.clone())
+        .primary()
+        .loading()
+        .classes();
     println!("  Loading: {}", loading);
 
     // Example 4: Special configurations
     println!("\n⚙️  Special Configurations:");
-    let full_width = Button::primary(colors.clone()).full_width(true).build();
+    let full_width = ButtonStyles::new(colors.clone())
+        .primary()
+        .full_width()
+        .classes();
     println!("  Full Width: {}", full_width);
 
-    let with_icon = Button::primary(colors.clone()).with_icon(true).build();
+    let with_icon = ButtonStyles::new(colors.clone())
+        .primary()
+        .with_icon()
+        .classes();
     println!("  With Icon: {}", with_icon);
 
     // Example 5: Fluent API demonstration
     println!("\n🌊 Fluent API Example:");
-    let complex_button = Button::new(colors.clone())
-        .variant(ButtonVariant::Success)
-        .size(Size::Large)
-        .state(ButtonState::Hover)
-        .full_width(true)
-        .with_icon(true)
-        .build();
+    let complex_button = ButtonStyles::new(colors.clone())
+        .success()
+        .large()
+        .hover()
+        .full_width()
+        .with_icon()
+        .classes();
     println!("  Complex Button: {}", complex_button);
 
     // Example 6: Custom theme
@@ -105,39 +130,62 @@ fn main() {
         palette.secondary = "pink-500".to_string();
     });
 
-    let custom_primary = Button::primary(custom_colors.clone()).build();
+    let custom_primary = ButtonStyles::new(custom_colors.clone()).primary().classes();
     println!("  Custom Primary: {}", custom_primary);
 
-    let custom_secondary = Button::secondary(custom_colors.clone()).build();
+    let custom_secondary = ButtonStyles::new(custom_colors.clone())
+        .secondary()
+        .classes();
     println!("  Custom Secondary: {}", custom_secondary);
 
-    // Example 7: Trait-based approach
-    println!("\n🏗️  Trait-based Builder Pattern:");
-    let trait_button = Button::new(colors.clone())
-        .variant(ButtonVariant::Warning)
-        .size(Size::Small)
-        .state(ButtonState::Default)
-        .full_width(false)
-        .with_icon(false)
-        .build();
-    println!("  Trait Builder: {}", trait_button);
+    // Example 7: Custom CSS classes
+    println!("\n🎨 Custom CSS Classes Example:");
+    let custom_button = ButtonStyles::new(colors.clone())
+        .primary()
+        .large()
+        .custom("shadow-xl")
+        .custom("transform")
+        .custom_classes("hover:scale-110 transition-transform")
+        .classes();
+    println!("  With Custom Classes: {}", custom_button);
 
-    // Example 8: Component comparison
+    // Example 8: Convenience functions
+    println!("\n🚀 Convenience Functions:");
+    let quick_button = button_styles(colors.clone())
+        .warning()
+        .small()
+        .full_width()
+        .classes();
+    println!("  Quick Button: {}", quick_button);
+
+    let button_with_custom = button_styles_with_custom(colors.clone(), "animate-pulse")
+        .success()
+        .medium()
+        .classes();
+    println!("  Button with Custom: {}", button_with_custom);
+
+    // Example 9: Component comparison
     println!("\n📊 Component Comparison:");
     println!("  Same variant, different providers:");
-    let ww_button = Button::primary(WaterWellnessColors::new()).build();
+    let ww_button = ButtonStyles::new(WaterWellnessColors::new())
+        .primary()
+        .classes();
     println!("    Water & Wellness: {}", ww_button);
 
-    let custom_button = Button::primary(WaterWellnessColors::with_overrides(|p| {
+    let custom_button = ButtonStyles::new(WaterWellnessColors::with_overrides(|p| {
         p.primary = "indigo-600".to_string();
     }))
-    .build();
+    .primary()
+    .classes();
     println!("    Custom Theme: {}", custom_button);
 
-    println!("\n✅ Button usage example completed successfully!");
-    println!("💡 Notice how the trait-based approach allows for:");
+    println!("\n✅ Button styling example completed successfully!");
+    println!("💡 Notice how the styling utility approach allows for:");
+    println!("   - Pure CSS class generation");
+    println!("   - Framework-agnostic usage");
     println!("   - Type-safe color management");
     println!("   - Consistent styling across themes");
     println!("   - Fluent builder pattern");
+    println!("   - Custom CSS class injection");
     println!("   - Easy customization and extension");
 }
