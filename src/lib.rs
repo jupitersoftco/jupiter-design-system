@@ -30,12 +30,15 @@ pub mod utils;
 pub use crate::builders::*;
 pub use crate::core::*;
 pub use crate::patterns::{
-    action_semantics, button_link, button_pattern, card_pattern, destructive_button,
-    focus_management, hero_button, interactive_element, navigation_button, primary_button,
-    secondary_button, ActionContext, ActionHierarchy, ActionIntent, ActionSemantics, ButtonPattern,
-    ButtonSemanticInfo, CardElevation, CardInteraction, CardPattern, CardSpacing, CardSurface,
-    FocusBehavior, FocusManagement, InteractionIntensity, InteractiveElement, InteractiveState,
-    KeyboardPattern, ScreenReaderPattern,
+    action_semantics, body_typography, button_link, button_pattern, caption_typography,
+    card_pattern, code_typography, destructive_button, focus_management, heading_typography,
+    hero_button, interactive_element, navigation_button, primary_button, secondary_button,
+    title_typography, typography_pattern, ActionContext, ActionHierarchy, ActionIntent,
+    ActionSemantics, ButtonPattern, ButtonSemanticInfo, CardElevation, CardInteraction,
+    CardPattern, CardSpacing, CardSurface, FocusBehavior, FocusManagement, InteractionIntensity,
+    InteractiveElement, InteractiveState, KeyboardPattern, ScreenReaderPattern,
+    TypographyAlignment, TypographyColor, TypographyHierarchy, TypographyOverflow,
+    TypographyPattern, TypographySize, TypographyWeight,
 };
 pub use crate::themes::*;
 pub use crate::utils::*;
@@ -44,15 +47,19 @@ pub use crate::utils::*;
 pub mod prelude {
     pub use crate::builders::{
         button_classes_from_strings, button_styles, card_classes_from_strings, card_styles,
-        ButtonState, ButtonStyles, ButtonVariant, CardStyles,
+        text_classes_from_strings, text_styles, ButtonState, ButtonStyles, ButtonVariant,
+        CardStyles, TextStyles,
     };
     pub use crate::core::color::{ColorProvider, WaterWellnessColors};
     pub use crate::core::{Breakpoint, Color, Size, Spacing, Typography};
     pub use crate::patterns::{
-        action_semantics, card_pattern, destructive_button, focus_management, hero_button,
-        interactive_element, primary_button, secondary_button, ActionIntent, ActionSemantics,
-        ButtonPattern, CardElevation, CardInteraction, CardPattern, CardSpacing, CardSurface,
-        FocusManagement, InteractiveElement, InteractiveState,
+        action_semantics, body_typography, caption_typography, card_pattern, code_typography,
+        destructive_button, focus_management, heading_typography, hero_button, interactive_element,
+        primary_button, secondary_button, title_typography, typography_pattern, ActionIntent,
+        ActionSemantics, ButtonPattern, CardElevation, CardInteraction, CardPattern, CardSpacing,
+        CardSurface, FocusManagement, InteractiveElement, InteractiveState, TypographyAlignment,
+        TypographyColor, TypographyHierarchy, TypographyOverflow, TypographyPattern,
+        TypographySize, TypographyWeight,
     };
     pub use crate::themes::{Theme, WaterWellnessTheme};
     pub use crate::utils::DesignSystem;

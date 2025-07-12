@@ -8,6 +8,7 @@ pub mod button;
 pub mod card;
 pub mod focus;
 pub mod interactions;
+pub mod typography;
 
 // Re-export commonly used patterns
 pub use actions::*;
@@ -15,3 +16,4 @@ pub use button::*;
 pub use card::*;
 pub use focus::*;
 pub use interactions::*;
+pub use typography::*;
