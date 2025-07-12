@@ -22,12 +22,14 @@
 
 pub mod builders;
 pub mod core;
+pub mod patterns;
 pub mod themes;
 pub mod utils;
 
 // Re-export commonly used items
 pub use crate::builders::*;
 pub use crate::core::*;
+pub use crate::patterns::*;
 pub use crate::themes::*;
 pub use crate::utils::*;
 
@@ -38,6 +40,10 @@ pub mod prelude {
     };
     pub use crate::core::color::{ColorProvider, WaterWellnessColors};
     pub use crate::core::{Breakpoint, Color, Size, Spacing, Typography};
+    pub use crate::patterns::{
+        action_semantics, focus_management, interactive_element, ActionIntent, ActionSemantics,
+        FocusManagement, InteractiveElement, InteractiveState,
+    };
     pub use crate::themes::{Theme, WaterWellnessTheme};
     pub use crate::utils::DesignSystem;
 }

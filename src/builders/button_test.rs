@@ -327,4 +327,209 @@ mod tests {
         let class_parts: Vec<&str> = classes.split_whitespace().collect();
         assert_eq!(classes, class_parts.join(" "));
     }
+
+    // String-based convenience method tests
+    #[test]
+    fn test_button_styles_variant_str() {
+        let colors = create_test_colors();
+
+        // Test standard variants
+        let primary = ButtonStyles::new(colors.clone())
+            .variant_str("primary")
+            .classes();
+        assert!(primary.contains("bg-water-blue-500"));
+
+        let secondary = ButtonStyles::new(colors.clone())
+            .variant_str("secondary")
+            .classes();
+        assert!(secondary.contains("bg-white"));
+
+        let success = ButtonStyles::new(colors.clone())
+            .variant_str("success")
+            .classes();
+        assert!(success.contains("bg-green-500"));
+
+        // Test aliases
+        let outline = ButtonStyles::new(colors.clone())
+            .variant_str("outline")
+            .classes();
+        assert!(outline.contains("bg-white")); // maps to secondary
+
+        let danger = ButtonStyles::new(colors.clone())
+            .variant_str("danger")
+            .classes();
+        assert!(danger.contains("bg-red-500")); // maps to error
+
+        let water = ButtonStyles::new(colors.clone())
+            .variant_str("water")
+            .classes();
+        assert!(water.contains("bg-water-blue-500")); // maps to primary
+
+        // Test fallback
+        let unknown = ButtonStyles::new(colors.clone())
+            .variant_str("unknown")
+            .classes();
+        assert!(unknown.contains("bg-water-blue-500")); // fallback to primary
+    }
+
+    #[test]
+    fn test_button_styles_size_str() {
+        let colors = create_test_colors();
+
+        // Test standard sizes
+        let xs = ButtonStyles::new(colors.clone()).size_str("xs").classes();
+        assert!(xs.contains("px-2 py-1"));
+
+        let sm = ButtonStyles::new(colors.clone()).size_str("sm").classes();
+        assert!(sm.contains("px-3 py-1.5"));
+
+        let md = ButtonStyles::new(colors.clone()).size_str("md").classes();
+        assert!(md.contains("px-4 py-2"));
+
+        let lg = ButtonStyles::new(colors.clone()).size_str("lg").classes();
+        assert!(lg.contains("px-6 py-3"));
+
+        let xl = ButtonStyles::new(colors.clone()).size_str("xl").classes();
+        assert!(xl.contains("px-8 py-4"));
+
+        // Test aliases
+        let small = ButtonStyles::new(colors.clone())
+            .size_str("small")
+            .classes();
+        assert!(small.contains("px-3 py-1.5")); // maps to sm
+
+        let large = ButtonStyles::new(colors.clone())
+            .size_str("large")
+            .classes();
+        assert!(large.contains("px-6 py-3")); // maps to lg
+
+        // Test fallback
+        let unknown = ButtonStyles::new(colors.clone())
+            .size_str("unknown")
+            .classes();
+        assert!(unknown.contains("px-4 py-2")); // fallback to medium
+    }
+
+    #[test]
+    fn test_button_styles_state_str() {
+        let colors = create_test_colors();
+
+        // Test standard states
+        let default = ButtonStyles::new(colors.clone())
+            .state_str("default")
+            .classes();
+        // Note: Base classes include "disabled:opacity-50" for all buttons
+        assert!(default.contains("disabled:opacity-50")); // base class always present
+
+        let disabled = ButtonStyles::new(colors.clone())
+            .state_str("disabled")
+            .classes();
+        assert!(disabled.contains("opacity-50"));
+        assert!(disabled.contains("cursor-not-allowed"));
+
+        let loading = ButtonStyles::new(colors.clone())
+            .state_str("loading")
+            .classes();
+        assert!(loading.contains("cursor-wait"));
+
+        let hover = ButtonStyles::new(colors.clone())
+            .state_str("hover")
+            .classes();
+        assert!(hover.contains("hover:scale-105"));
+
+        let active = ButtonStyles::new(colors.clone())
+            .state_str("active")
+            .classes();
+        assert!(active.contains("active:scale-95"));
+
+        // Test fallback
+        let unknown = ButtonStyles::new(colors.clone())
+            .state_str("unknown")
+            .classes();
+        assert!(unknown.contains("disabled:opacity-50")); // base class always present
+    }
+
+    #[test]
+    fn test_button_classes_from_strings() {
+        let colors = create_test_colors();
+
+        // Test basic usage
+        let classes = button_classes_from_strings(
+            colors.clone(),
+            "primary",
+            "lg",
+            false, // disabled
+            false, // loading
+            true,  // full_width
+        );
+
+        assert!(classes.contains("bg-water-blue-500")); // primary variant
+        assert!(classes.contains("px-6 py-3")); // large size
+        assert!(classes.contains("w-full")); // full width
+        assert!(classes.contains("disabled:opacity-50")); // base class always present
+        assert!(!classes.contains("cursor-wait")); // not loading
+
+        // Test with loading state
+        let loading_classes = button_classes_from_strings(
+            colors.clone(),
+            "secondary",
+            "sm",
+            false, // disabled
+            true,  // loading
+            false, // full_width
+        );
+
+        assert!(loading_classes.contains("bg-white")); // secondary variant
+        assert!(loading_classes.contains("px-3 py-1.5")); // small size
+        assert!(loading_classes.contains("cursor-wait")); // loading state
+        assert!(!loading_classes.contains("w-full")); // not full width
+
+        // Test with disabled state
+        let disabled_classes = button_classes_from_strings(
+            colors.clone(),
+            "success",
+            "md",
+            true,  // disabled
+            false, // loading
+            false, // full_width
+        );
+
+        assert!(disabled_classes.contains("bg-green-500")); // success variant
+        assert!(disabled_classes.contains("px-4 py-2")); // medium size
+        assert!(disabled_classes.contains("opacity-50")); // disabled state
+        assert!(disabled_classes.contains("cursor-not-allowed")); // disabled cursor
+
+        // Test with aliases
+        let alias_classes = button_classes_from_strings(
+            colors.clone(),
+            "outline", // maps to secondary
+            "xl",
+            false, // disabled
+            false, // loading
+            false, // full_width
+        );
+
+        assert!(alias_classes.contains("bg-white")); // secondary variant (from outline alias)
+        assert!(alias_classes.contains("px-8 py-4")); // extra large size
+    }
+
+    #[test]
+    fn test_button_string_methods_chaining() {
+        let colors = create_test_colors();
+
+        // Test that string methods can be chained with other methods
+        let classes = ButtonStyles::new(colors)
+            .variant_str("primary")
+            .size_str("lg")
+            .state_str("hover")
+            .full_width()
+            .custom("shadow-xl")
+            .classes();
+
+        assert!(classes.contains("bg-water-blue-500")); // primary variant
+        assert!(classes.contains("px-6 py-3")); // large size
+        assert!(classes.contains("hover:scale-105")); // hover state
+        assert!(classes.contains("w-full")); // full width
+        assert!(classes.contains("shadow-xl")); // custom class
+    }
 }
