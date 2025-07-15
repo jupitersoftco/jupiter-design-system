@@ -12,7 +12,7 @@ fn main() {
 
     // Create a color provider
     let colors = VibeColors::new();
-    println!("🎨 Created Water & Wellness color provider");
+    println!("🎨 Created Jupiter Design System color provider");
 
     // Example 1: Basic button variants
     println!("\n🎯 Basic Button Variants:");
@@ -165,10 +165,8 @@ fn main() {
     // Example 9: Component comparison
     println!("\n📊 Component Comparison:");
     println!("  Same variant, different providers:");
-    let ww_button = ButtonStyles::new(VibeColors::new())
-        .primary()
-        .classes();
-    println!("    Water & Wellness: {}", ww_button);
+    let ww_button = ButtonStyles::new(VibeColors::new()).primary().classes();
+    println!("    Jupiter Design System: {}", ww_button);
 
     let custom_button = ButtonStyles::new(VibeColors::with_overrides(|p| {
         p.primary = "indigo-600".to_string();

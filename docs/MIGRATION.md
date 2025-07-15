@@ -141,7 +141,7 @@ let final_class = format!("{} {} {} {}",
     base_classes, variant_classes, size_classes, custom_classes);
 
 // After: Jupiter Design System
-let final_class = card_styles(WaterWellnessColors::default())
+let final_class = card_styles(VibeColors::default())
     .variant_str(&props.variant)
     .spacing_str(&props.padding)
     .interaction_from_props(props.hoverable, props.clickable)
@@ -191,7 +191,7 @@ impl CardUtils {
             interaction
         };
 
-        card_styles(WaterWellnessColors::default())
+        card_styles(VibeColors::default())
             .surface(surface)
             .elevation(elevation)
             .spacing_str(padding)
@@ -315,7 +315,7 @@ echo "🎯 Migration complete!"
 ```rust
 // Keep old API, power with new system
 pub fn legacy_button_classes(variant: &str, size: &str) -> String {
-    button_styles(WaterWellnessColors::default())
+    button_styles(VibeColors::default())
         .variant_str(variant)
         .size_str(size)
         .classes()
@@ -326,10 +326,10 @@ pub fn legacy_button_classes(variant: &str, size: &str) -> String {
 
 ```rust
 // Map component props to Jupiter patterns
-fn props_to_jupiter(props: &CardProps) -> CardStyles<WaterWellnessColors> {
+fn props_to_jupiter(props: &CardProps) -> CardStyles<VibeColors> {
     let (surface, elevation, interaction) = map_legacy_variant(&props.variant);
 
-    card_styles(WaterWellnessColors::default())
+    card_styles(VibeColors::default())
         .surface(surface)
         .elevation(elevation)
         .spacing_str(&props.padding)

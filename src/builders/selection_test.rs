@@ -65,17 +65,17 @@ mod tests {
         let item_classes = SelectionStyles::new(colors.clone())
             .selected()
             .item_classes();
-        assert!(item_classes.contains("bg-water-blue-500"));
+        assert!(item_classes.contains("bg-jupiter-blue-500"));
         assert!(item_classes.contains("text-white"));
-        assert!(item_classes.contains("border-water-blue-500"));
+        assert!(item_classes.contains("border-jupiter-blue-500"));
 
         // Test partially selected state
         let item_classes = SelectionStyles::new(colors.clone())
             .partially_selected()
             .item_classes();
         assert!(item_classes.contains("bg-gray-50"));
-        assert!(item_classes.contains("text-water-blue-500"));
-        assert!(item_classes.contains("border-water-blue-500"));
+        assert!(item_classes.contains("text-jupiter-blue-500"));
+        assert!(item_classes.contains("border-jupiter-blue-500"));
 
         // Test disabled state
         let item_classes = SelectionStyles::new(colors.clone())
@@ -283,7 +283,7 @@ mod tests {
         let item_classes = SelectionStyles::new(colors.clone())
             .state_str("selected")
             .item_classes();
-        assert!(item_classes.contains("bg-water-blue-500"));
+        assert!(item_classes.contains("bg-jupiter-blue-500"));
 
         // Test display_str
         let item_classes = SelectionStyles::new(colors.clone())
@@ -382,7 +382,7 @@ mod tests {
         assert!(container_classes.contains("gap-3"));
 
         assert!(item_classes.contains("selection-item"));
-        assert!(item_classes.contains("bg-water-blue-500"));
+        assert!(item_classes.contains("bg-jupiter-blue-500"));
         assert!(item_classes.contains("text-white"));
         assert!(item_classes.contains("px-6"));
         assert!(item_classes.contains("py-3"));
@@ -399,7 +399,7 @@ mod tests {
             .selected()
             .with_counts(true)
             .count_classes();
-        assert!(count_classes.contains("bg-water-blue-500"));
+        assert!(count_classes.contains("bg-jupiter-blue-500"));
         assert!(count_classes.contains("text-white"));
 
         // Test count classes with unselected state
@@ -476,7 +476,7 @@ mod tests {
         assert!(item_classes.contains("px-4"));
         assert!(item_classes.contains("py-2"));
         assert!(item_classes.contains("text-lg"));
-        assert!(item_classes.contains("bg-water-blue-500"));
+        assert!(item_classes.contains("bg-jupiter-blue-500"));
         assert!(item_classes.contains("cursor-pointer"));
     }
 

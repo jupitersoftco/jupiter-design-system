@@ -20,7 +20,7 @@ use jupiter_design_system::prelude::*;
 
 // Typography with semantic meaning
 let title_classes = text_styles(colors).title().bold().primary().classes();
-// → "font-bold leading-tight text-4xl text-water-blue-500 tracking-tight"
+// → "font-bold leading-tight text-4xl text-jupiter-blue-500 tracking-tight"
 
 // Cards with elevation and surface semantics
 let card_classes = card_styles(colors).elevated().interactive().classes();
@@ -28,7 +28,7 @@ let card_classes = card_styles(colors).elevated().interactive().classes();
 
 // Buttons with action intent
 let button_classes = button_styles(colors).primary().large().classes();
-// → "bg-water-blue-500 hover:bg-water-blue-600 text-white px-6 py-3 rounded-lg"
+// → "bg-jupiter-blue-500 hover:bg-jupiter-blue-600 text-white px-6 py-3 rounded-lg"
 ```
 
 ## 📚 **Documentation Navigation**

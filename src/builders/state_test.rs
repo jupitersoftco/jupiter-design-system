@@ -32,7 +32,7 @@ mod tests {
 
         // Test loading intent
         let classes = StateStyles::new(colors.clone()).loading().classes();
-        assert!(classes.contains("text-water-blue-500"));
+        assert!(classes.contains("text-jupiter-blue-500"));
 
         // Test success intent
         let classes = StateStyles::new(colors.clone()).success().classes();

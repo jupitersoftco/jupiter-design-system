@@ -19,7 +19,7 @@ This document captures the valuable insights, methodologies, and breakthroughs d
 ```rust
 // Revolutionary: Think semantically, get concrete results
 text_styles(colors).title().primary().center()
-// → "font-bold leading-tight text-4xl text-water-blue-500 tracking-tight text-center"
+// → "font-bold leading-tight text-4xl text-jupiter-blue-500 tracking-tight text-center"
 ```
 
 ### **2. Zero-Breaking-Change Migration Methodology**

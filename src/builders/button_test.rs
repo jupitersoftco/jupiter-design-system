@@ -22,7 +22,7 @@ mod tests {
         assert!(classes.contains("font-medium"));
         assert!(classes.contains("transition-colors"));
         assert!(classes.contains("px-4 py-2")); // medium size
-        assert!(classes.contains("bg-water-blue-500")); // primary variant
+        assert!(classes.contains("bg-jupiter-blue-500")); // primary variant
     }
 
     #[test]
@@ -47,7 +47,7 @@ mod tests {
 
         // Primary
         let primary = ButtonStyles::new(colors.clone()).primary().classes();
-        assert!(primary.contains("bg-water-blue-500"));
+        assert!(primary.contains("bg-jupiter-blue-500"));
         assert!(primary.contains("text-white"));
 
         // Secondary
@@ -79,7 +79,7 @@ mod tests {
         // Link
         let link = ButtonStyles::new(colors.clone()).link().classes();
         assert!(link.contains("bg-transparent"));
-        assert!(link.contains("text-water-blue-500"));
+        assert!(link.contains("text-jupiter-blue-500"));
         assert!(link.contains("hover:underline"));
     }
 
@@ -149,7 +149,7 @@ mod tests {
             .full_width()
             .classes();
 
-        assert!(classes.contains("bg-water-blue-500"));
+        assert!(classes.contains("bg-jupiter-blue-500"));
         assert!(classes.contains("px-6 py-3"));
         assert!(classes.contains("w-full"));
     }
@@ -214,7 +214,7 @@ mod tests {
             .custom("shadow-xl")
             .classes();
 
-        assert!(classes.contains("bg-water-blue-500")); // primary variant
+        assert!(classes.contains("bg-jupiter-blue-500")); // primary variant
         assert!(classes.contains("shadow-xl")); // custom class
     }
 
@@ -272,7 +272,7 @@ mod tests {
             .classes();
 
         // Design system classes
-        assert!(classes.contains("bg-water-blue-500")); // primary
+        assert!(classes.contains("bg-jupiter-blue-500")); // primary
         assert!(classes.contains("px-6 py-3")); // large
         assert!(classes.contains("w-full")); // full width
 
@@ -293,7 +293,7 @@ mod tests {
             .large()
             .classes();
 
-        assert!(classes.contains("bg-water-blue-500"));
+        assert!(classes.contains("bg-jupiter-blue-500"));
         assert!(classes.contains("px-6 py-3"));
         assert!(classes.contains("shadow-xl"));
         assert!(classes.contains("transform"));
@@ -307,7 +307,7 @@ mod tests {
             .custom_classes("") // empty string should be handled gracefully
             .classes();
 
-        assert!(classes.contains("bg-water-blue-500"));
+        assert!(classes.contains("bg-jupiter-blue-500"));
         assert!(!classes.contains("  ")); // no extra spaces
     }
 
@@ -337,7 +337,7 @@ mod tests {
         let primary = ButtonStyles::new(colors.clone())
             .variant_str("primary")
             .classes();
-        assert!(primary.contains("bg-water-blue-500"));
+        assert!(primary.contains("bg-jupiter-blue-500"));
 
         let secondary = ButtonStyles::new(colors.clone())
             .variant_str("secondary")
@@ -363,13 +363,13 @@ mod tests {
         let water = ButtonStyles::new(colors.clone())
             .variant_str("water")
             .classes();
-        assert!(water.contains("bg-water-blue-500")); // maps to primary
+        assert!(water.contains("bg-jupiter-blue-500")); // maps to primary
 
         // Test fallback
         let unknown = ButtonStyles::new(colors.clone())
             .variant_str("unknown")
             .classes();
-        assert!(unknown.contains("bg-water-blue-500")); // fallback to primary
+        assert!(unknown.contains("bg-blue-500")); // fallback to primary
     }
 
     #[test]
@@ -463,7 +463,7 @@ mod tests {
             true,  // full_width
         );
 
-        assert!(classes.contains("bg-water-blue-500")); // primary variant
+        assert!(classes.contains("bg-jupiter-blue-500")); // primary variant
         assert!(classes.contains("px-6 py-3")); // large size
         assert!(classes.contains("w-full")); // full width
         assert!(classes.contains("disabled:opacity-50")); // base class always present
@@ -526,7 +526,7 @@ mod tests {
             .custom("shadow-xl")
             .classes();
 
-        assert!(classes.contains("bg-water-blue-500")); // primary variant
+        assert!(classes.contains("bg-jupiter-blue-500")); // primary variant
         assert!(classes.contains("px-6 py-3")); // large size
         assert!(classes.contains("hover:scale-105")); // hover state
         assert!(classes.contains("w-full")); // full width

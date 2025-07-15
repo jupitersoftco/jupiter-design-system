@@ -16,7 +16,7 @@ fn main() {
 
     // Create a color provider
     let colors = VibeColors::new();
-    println!("🎨 Created Water & Wellness color provider");
+    println!("🎨 Created Jupiter Design System color provider");
 
     // Generate CSS classes for different colors
     println!("\n🌈 Color Classes:");

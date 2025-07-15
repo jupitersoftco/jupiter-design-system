@@ -280,13 +280,13 @@ pub fn get_common_classes(pattern: &str) -> Option<&String> {
 Optimize color provider lookups:
 
 ```rust
-impl ColorProvider for WaterWellnessColors {
+impl ColorProvider for VibeColors {
     fn get_color(&self, semantic: SemanticColor) -> &'static str {
         // Use match for compile-time optimization
         match semantic {
-            SemanticColor::Primary => "text-water-blue-500",
-            SemanticColor::Secondary => "text-water-blue-300",
-            SemanticColor::Accent => "text-water-blue-700",
+                    SemanticColor::Primary => "text-jupiter-blue-500",
+        SemanticColor::Secondary => "text-jupiter-blue-300",
+        SemanticColor::Accent => "text-jupiter-blue-700",
             SemanticColor::Success => "text-green-500",
             SemanticColor::Warning => "text-yellow-500",
             SemanticColor::Error => "text-red-500",
@@ -310,7 +310,7 @@ mod benchmarks {
 
     #[test]
     fn benchmark_class_generation() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
         let iterations = 10_000;
 
         let start = Instant::now();
@@ -333,7 +333,7 @@ mod benchmarks {
 
     #[test]
     fn benchmark_pattern_creation() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
         let iterations = 1_000;
 
         let start = Instant::now();
@@ -400,7 +400,7 @@ mod memory_tests {
 
     #[test]
     fn test_memory_usage() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Create many pattern instances
         let patterns: Vec<_> = (0..1000)
@@ -521,7 +521,7 @@ For components rendered hundreds of times:
 lazy_static! {
     static ref BUTTON_VARIANTS: HashMap<&'static str, String> = {
         let mut map = HashMap::new();
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         map.insert("primary", button_styles(colors).primary().classes());
         map.insert("secondary", button_styles(colors).secondary().classes());

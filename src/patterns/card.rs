@@ -438,7 +438,7 @@ impl<C: ColorProvider + Clone> CardPattern<C> {
                 self.color_provider.text_class(crate::core::Color::TextPrimary),
                 self.color_provider.border_class(crate::core::Color::Border)
             ),
-            CardSurface::Branded => "bg-gradient-to-br from-water-navy-900/80 to-water-blue-900/80 border-white/10 text-white".to_string(),
+            CardSurface::Branded => "bg-gradient-to-br from-jupiter-navy-900/80 to-jupiter-blue-900/80 border-white/10 text-white".to_string(),
             CardSurface::Glass => {
                 "bg-white/10 backdrop-blur-md border-white/20 text-white".to_string()
             },

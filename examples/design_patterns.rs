@@ -226,7 +226,7 @@ mod tests {
         let destructive = action_semantics(colors.clone()).destructive().classes();
         let nav = action_semantics(colors).navigation().classes();
 
-        assert!(primary.contains("bg-water-500"));
+        assert!(primary.contains("bg-jupiter-blue-500"));
         assert!(destructive.contains("bg-red-500"));
         assert!(nav.contains("bg-transparent"));
     }
@@ -254,7 +254,7 @@ mod tests {
         assert!(primary_btn.contains("cursor-pointer"));
 
         // Should have semantic classes
-        assert!(primary_btn.contains("bg-water-500"));
+        assert!(primary_btn.contains("bg-jupiter-blue-500"));
 
         // Should have focus classes
         assert!(primary_btn.contains("focus:outline-none"));

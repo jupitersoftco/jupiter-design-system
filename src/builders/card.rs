@@ -397,7 +397,7 @@ impl<C: ColorProvider> CardStyles<C> {
                 self.color_provider.border_class(crate::core::Color::Border)
             ),
             CardSurface::Branded => {
-                "bg-gradient-to-br from-water-navy-900/80 to-water-blue-900/80 border-white/10 text-white".to_string()
+                "bg-gradient-to-br from-jupiter-navy-900/80 to-jupiter-blue-900/80 border-white/10 text-white".to_string()
             },
             CardSurface::Glass => {
                 "bg-white/10 backdrop-blur-md border-white/20 text-white".to_string()

@@ -406,7 +406,7 @@ impl<T: ColorProvider> TypographyPattern<T> {
         match self.color {
             TypographyColor::Primary => self.color_provider.text_class(Color::Primary),
             TypographyColor::Secondary => self.color_provider.text_class(Color::Secondary),
-            TypographyColor::Accent => self.color_provider.text_class(Color::Warning),
+            TypographyColor::Accent => self.color_provider.text_class(Color::Accent),
             TypographyColor::Muted => self.color_provider.text_class(Color::TextSecondary),
             TypographyColor::Disabled => self.color_provider.text_class(Color::InteractiveDisabled),
             TypographyColor::White => self.color_provider.text_class(Color::TextInverse),
@@ -424,9 +424,15 @@ impl<T: ColorProvider> TypographyPattern<T> {
                     | TypographyHierarchy::H4
                     | TypographyHierarchy::Body
                     | TypographyHierarchy::BodyLarge
-                    | TypographyHierarchy::BodySmall => self.color_provider.text_class(Color::TextPrimary),
-                    TypographyHierarchy::Caption => self.color_provider.text_class(Color::TextSecondary),
-                    TypographyHierarchy::Overline => self.color_provider.text_class(Color::TextTertiary),
+                    | TypographyHierarchy::BodySmall => {
+                        self.color_provider.text_class(Color::TextPrimary)
+                    }
+                    TypographyHierarchy::Caption => {
+                        self.color_provider.text_class(Color::TextSecondary)
+                    }
+                    TypographyHierarchy::Overline => {
+                        self.color_provider.text_class(Color::TextTertiary)
+                    }
                     TypographyHierarchy::Code => self.color_provider.text_class(Color::TextPrimary),
                 }
             }

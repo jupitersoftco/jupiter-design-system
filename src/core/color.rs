@@ -11,6 +11,7 @@ pub enum Color {
     // Brand colors
     Primary,
     Secondary,
+    Accent,
 
     // Semantic colors
     Success,
@@ -43,6 +44,7 @@ pub struct ColorPalette {
     // Brand colors
     pub primary: String,
     pub secondary: String,
+    pub accent: String,
 
     // Semantic colors
     pub success: String,
@@ -80,6 +82,7 @@ pub trait ColorProvider {
         match color {
             Color::Primary => &palette.primary,
             Color::Secondary => &palette.secondary,
+            Color::Accent => &palette.accent,
             Color::Success => &palette.success,
             Color::Warning => &palette.warning,
             Color::Error => &palette.error,
@@ -115,7 +118,7 @@ pub trait ColorProvider {
     }
 }
 
-/// Default Water & Wellness color palette
+/// Default Jupiter Design System color palette
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VibeColors {
     palette: ColorPalette,
@@ -125,9 +128,10 @@ impl Default for VibeColors {
     fn default() -> Self {
         Self {
             palette: ColorPalette {
-                // Brand colors - Water & Wellness theme
-                primary: "water-blue-500".to_string(),
-                secondary: "water-green-500".to_string(),
+                // Brand colors - Jupiter Design System
+                primary: "jupiter-blue-500".to_string(),
+                secondary: "jupiter-green-500".to_string(),
+                accent: "jupiter-orange-500".to_string(),
 
                 // Semantic colors
                 success: "green-500".to_string(),
@@ -148,9 +152,9 @@ impl Default for VibeColors {
                 text_inverse: "white".to_string(),
 
                 // Interactive states
-                interactive: "water-blue-500".to_string(),
-                interactive_hover: "water-blue-600".to_string(),
-                interactive_active: "water-blue-700".to_string(),
+                interactive: "jupiter-blue-500".to_string(),
+                interactive_hover: "jupiter-blue-600".to_string(),
+                interactive_active: "jupiter-blue-700".to_string(),
                 interactive_disabled: "gray-300".to_string(),
             },
         }
@@ -164,12 +168,12 @@ impl ColorProvider for VibeColors {
 }
 
 impl VibeColors {
-    /// Create a new Water & Wellness color provider
+    /// Create a new Jupiter color provider
     pub fn new() -> Self {
         Self::default()
     }
 
-    /// Create a Water & Wellness color provider with custom overrides
+    /// Create a Jupiter color provider with custom overrides
     pub fn with_overrides(overrides: impl Fn(&mut ColorPalette)) -> Self {
         let mut palette = ColorPalette::default();
         overrides(&mut palette);

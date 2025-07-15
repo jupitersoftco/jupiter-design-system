@@ -53,7 +53,7 @@ fn test_text_builder_chaining_api() {
 
     // Test API usability and output correctness
     assert!(classes.contains("text-4xl"));
-    assert!(classes.contains("text-water-blue-500"));
+    assert!(classes.contains("text-jupiter-blue-500"));
     assert!(classes.contains("text-center"));
 }
 ```
@@ -151,7 +151,7 @@ fn test_pattern_composition() {
     assert!(!classes.contains("text-4xl")); // No hierarchy default
 
     // Other properties should compose
-    assert!(classes.contains("text-water-blue-500")); // Primary color
+    assert!(classes.contains("text-jupiter-blue-500")); // Primary color
     assert!(classes.contains("text-center"));          // Center alignment
     assert!(classes.contains("tracking-tight"));       // From hierarchy
 }
@@ -218,7 +218,7 @@ fn test_builder_chaining_api() {
     // Should contain all chained properties
     assert!(classes.contains("text-4xl"));          // title
     assert!(classes.contains("font-bold"));         // bold
-    assert!(classes.contains("text-water-blue-500")); // primary
+    assert!(classes.contains("text-jupiter-blue-500")); // primary
     assert!(classes.contains("text-center"));       // center
     assert!(classes.contains("truncate"));          // truncate
     assert!(classes.contains("custom"));            // custom
@@ -413,8 +413,8 @@ mod color_tests {
 
 ```rust
 // Common test utilities
-fn create_text_styles() -> TextStyles<WaterWellnessColors> {
-    text_styles(WaterWellnessColors::default())
+fn create_text_styles() -> TextStyles<VibeColors> {
+    text_styles(VibeColors::default())
 }
 
 fn assert_contains_classes(classes: &str, expected: &[&str]) {
@@ -517,7 +517,7 @@ fn test_component_integration() {
 
     // This would be tested with actual component rendering
     let classes = text_classes_from_strings(
-        WaterWellnessColors::default(),
+        VibeColors::default(),
         &props.variant,
         props.size.as_deref(),
         props.weight.as_deref(),
@@ -531,7 +531,7 @@ fn test_component_integration() {
     // Verify component integration produces expected output
     assert!(classes.contains("text-lg"));
     assert!(classes.contains("font-bold"));
-    assert!(classes.contains("text-water-blue-500"));
+    assert!(classes.contains("text-jupiter-blue-500"));
     assert!(classes.contains("text-center"));
     assert!(classes.contains("truncate"));
     assert!(classes.contains("custom-class"));

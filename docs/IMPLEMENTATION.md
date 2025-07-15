@@ -285,11 +285,11 @@ pub use my_builder::{my_classes_from_strings, my_styles, MyStyles};
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
     #[test]
     fn test_pattern_defaults() {
-        let pattern = MyPattern::new(WaterWellnessColors::default());
+        let pattern = MyPattern::new(VibeColors::default());
         let classes = pattern.classes();
 
         assert!(classes.contains("my-pattern-base"));
@@ -299,7 +299,7 @@ mod tests {
 
     #[test]
     fn test_pattern_size_variations() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let compact = MyPattern::new(colors.clone()).size(MyPatternSize::Compact).classes();
         assert!(compact.contains("p-1"));
@@ -312,7 +312,7 @@ mod tests {
 
     #[test]
     fn test_pattern_style_variations() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let subtle = MyPattern::new(colors.clone()).style(MyPatternStyle::Subtle).classes();
         assert!(subtle.contains("bg-gray-50"));
@@ -332,10 +332,10 @@ mod tests {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
-    fn create_styles() -> MyStyles<WaterWellnessColors> {
-        my_styles(WaterWellnessColors::default())
+    fn create_styles() -> MyStyles<VibeColors> {
+        my_styles(VibeColors::default())
     }
 
     #[test]
@@ -354,7 +354,7 @@ mod tests {
     #[test]
     fn test_string_api() {
         let classes = my_classes_from_strings(
-            WaterWellnessColors::default(),
+            VibeColors::default(),
             Some("compact"),
             Some("emphasized"),
             Some("custom-class"),
@@ -502,7 +502,7 @@ fn test_all_size_variants() {
 // Easy integration in components
 #[component]
 pub fn MyComponent(props: MyProps) -> Element {
-    let classes = my_styles(WaterWellnessColors::default())
+    let classes = my_styles(VibeColors::default())
         .size_str(&props.size)
         .style_str(&props.style)
         .custom_classes(&props.class.unwrap_or_default())
@@ -520,7 +520,7 @@ pub fn MyComponent(props: MyProps) -> Element {
 impl MyComponentUtils {
     pub fn classes(size: &str, style: &str, custom: Option<&str>) -> String {
         my_classes_from_strings(
-            WaterWellnessColors::default(),
+            VibeColors::default(),
             Some(size),
             Some(style),
             custom,

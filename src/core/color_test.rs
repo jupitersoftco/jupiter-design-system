@@ -36,8 +36,9 @@ mod tests {
         let palette = ColorPalette::default();
 
         // Test brand colors
-        assert_eq!(palette.primary, "water-blue-500");
-        assert_eq!(palette.secondary, "water-green-500");
+        assert_eq!(palette.primary, "jupiter-blue-500");
+        assert_eq!(palette.secondary, "jupiter-green-500");
+        assert_eq!(palette.accent, "jupiter-orange-500");
 
         // Test semantic colors
         assert_eq!(palette.success, "green-500");
@@ -58,9 +59,9 @@ mod tests {
         assert_eq!(palette.text_inverse, "white");
 
         // Test interactive states
-        assert_eq!(palette.interactive, "water-blue-500");
-        assert_eq!(palette.interactive_hover, "water-blue-600");
-        assert_eq!(palette.interactive_active, "water-blue-700");
+        assert_eq!(palette.interactive, "jupiter-blue-500");
+        assert_eq!(palette.interactive_hover, "jupiter-blue-600");
+        assert_eq!(palette.interactive_active, "jupiter-blue-700");
         assert_eq!(palette.interactive_disabled, "gray-300");
     }
 
@@ -69,17 +70,19 @@ mod tests {
         let colors = VibeColors::default();
         let palette = colors.palette();
 
-        assert_eq!(palette.primary, "water-blue-500");
-        assert_eq!(palette.secondary, "water-green-500");
+        // Test brand colors
+        assert_eq!(palette.primary, "jupiter-blue-500");
+        assert_eq!(palette.secondary, "jupiter-green-500");
+        assert_eq!(palette.accent, "jupiter-orange-500");
     }
 
     #[test]
     fn test_vibe_colors_new() {
         let colors = VibeColors::new();
         let palette = colors.palette();
-
-        assert_eq!(palette.primary, "water-blue-500");
-        assert_eq!(palette.secondary, "water-green-500");
+        assert_eq!(palette.primary, "jupiter-blue-500");
+        assert_eq!(palette.secondary, "jupiter-green-500");
+        assert_eq!(palette.accent, "jupiter-orange-500");
     }
 
     #[test]
@@ -87,8 +90,9 @@ mod tests {
         let colors = VibeColors::default();
 
         // Test brand colors
-        assert_eq!(colors.resolve_color(Color::Primary), "water-blue-500");
-        assert_eq!(colors.resolve_color(Color::Secondary), "water-green-500");
+        assert_eq!(colors.resolve_color(Color::Primary), "jupiter-blue-500");
+        assert_eq!(colors.resolve_color(Color::Secondary), "jupiter-green-500");
+        assert_eq!(colors.resolve_color(Color::Accent), "jupiter-orange-500");
 
         // Test semantic colors
         assert_eq!(colors.resolve_color(Color::Success), "green-500");
@@ -109,14 +113,14 @@ mod tests {
         assert_eq!(colors.resolve_color(Color::TextInverse), "white");
 
         // Test interactive states
-        assert_eq!(colors.resolve_color(Color::Interactive), "water-blue-500");
+        assert_eq!(colors.resolve_color(Color::Interactive), "jupiter-blue-500");
         assert_eq!(
             colors.resolve_color(Color::InteractiveHover),
-            "water-blue-600"
+            "jupiter-blue-600"
         );
         assert_eq!(
             colors.resolve_color(Color::InteractiveActive),
-            "water-blue-700"
+            "jupiter-blue-700"
         );
         assert_eq!(colors.resolve_color(Color::InteractiveDisabled), "gray-300");
     }
@@ -125,7 +129,7 @@ mod tests {
     fn test_color_provider_text_class() {
         let colors = VibeColors::default();
 
-        assert_eq!(colors.text_class(Color::Primary), "text-water-blue-500");
+        assert_eq!(colors.text_class(Color::Primary), "text-jupiter-blue-500");
         assert_eq!(colors.text_class(Color::Success), "text-green-500");
         assert_eq!(colors.text_class(Color::Error), "text-red-500");
         assert_eq!(colors.text_class(Color::TextPrimary), "text-gray-900");
@@ -135,7 +139,7 @@ mod tests {
     fn test_color_provider_bg_class() {
         let colors = VibeColors::default();
 
-        assert_eq!(colors.bg_class(Color::Primary), "bg-water-blue-500");
+        assert_eq!(colors.bg_class(Color::Primary), "bg-jupiter-blue-500");
         assert_eq!(colors.bg_class(Color::Surface), "bg-white");
         assert_eq!(colors.bg_class(Color::Background), "bg-gray-50");
         assert_eq!(colors.bg_class(Color::Success), "bg-green-500");
@@ -145,7 +149,10 @@ mod tests {
     fn test_color_provider_border_class() {
         let colors = VibeColors::default();
 
-        assert_eq!(colors.border_class(Color::Primary), "border-water-blue-500");
+        assert_eq!(
+            colors.border_class(Color::Primary),
+            "border-jupiter-blue-500"
+        );
         assert_eq!(colors.border_class(Color::Border), "border-gray-200");
         assert_eq!(colors.border_class(Color::Error), "border-red-500");
     }

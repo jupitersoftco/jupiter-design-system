@@ -81,7 +81,7 @@ let classes = text_styles(colors)
     .center()          // TypographyAlignment::Center
     .classes();        // Generate CSS
 
-// Output: "font-bold leading-relaxed text-4xl text-water-blue-500 text-center tracking-tight"
+// Output: "font-bold leading-relaxed text-4xl text-jupiter-blue-500 text-center tracking-tight"
 
 // String convenience API
 let classes = text_classes_from_strings(

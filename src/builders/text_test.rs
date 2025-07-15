@@ -28,7 +28,7 @@ mod tests {
             ("caption", "font-medium text-sm text-gray-600"),
             (
                 "overline",
-                "font-medium text-xs text-gray-500 tracking-wider uppercase",
+                "font-medium text-xs text-gray-400 tracking-wider uppercase",
             ),
             ("code", "bg-gray-100 font-mono px-1 py-0.5 rounded text-sm"),
         ];
@@ -103,16 +103,16 @@ mod tests {
     fn test_text_color_methods() {
         // Test color convenience methods
         let primary_classes = create_text_styles().body().primary().classes();
-        assert!(primary_classes.contains("text-water-blue-500"));
+        assert!(primary_classes.contains("text-jupiter-blue-500"));
 
         let secondary_classes = create_text_styles().body().secondary().classes();
-        assert!(secondary_classes.contains("text-water-green-500"));
+        assert!(secondary_classes.contains("text-jupiter-green-500"));
 
         let muted_classes = create_text_styles().body().muted().classes();
-        assert!(muted_classes.contains("text-gray-500"));
+        assert!(muted_classes.contains("text-gray-600"));
 
         let error_classes = create_text_styles().body().error().classes();
-        assert!(error_classes.contains("text-red-600"));
+        assert!(error_classes.contains("text-red-500"));
     }
 
     #[test]
@@ -172,7 +172,7 @@ mod tests {
 
         assert!(classes.contains("text-lg")); // size override
         assert!(classes.contains("font-medium")); // weight override
-        assert!(classes.contains("text-water-blue-500")); // primary color
+        assert!(classes.contains("text-jupiter-blue-500")); // primary color
         assert!(classes.contains("text-center")); // center alignment
         assert!(classes.contains("truncate")); // truncation
         assert!(classes.contains("custom-class")); // custom class
@@ -193,7 +193,7 @@ mod tests {
 
         assert!(classes_with_clamp.contains("text-lg")); // size override
         assert!(classes_with_clamp.contains("font-medium")); // weight override
-        assert!(classes_with_clamp.contains("text-water-blue-500")); // primary color
+        assert!(classes_with_clamp.contains("text-jupiter-blue-500")); // primary color
         assert!(classes_with_clamp.contains("text-center")); // center alignment
         assert!(!classes_with_clamp.contains("truncate")); // no truncation
         assert!(classes_with_clamp.contains("custom-class")); // custom class
@@ -289,17 +289,17 @@ mod tests {
     #[test]
     fn test_text_color_str_all_colors() {
         let colors = vec![
-            ("primary", "text-water-blue-500"),
-            ("secondary", "text-water-green-500"),
-            ("accent", "text-water-orange-500"),
-            ("muted", "text-gray-500"),
-            ("disabled", "text-gray-400"),
+            ("primary", "text-jupiter-blue-500"),
+            ("secondary", "text-jupiter-green-500"),
+            ("accent", "text-jupiter-orange-500"),
+            ("muted", "text-gray-600"),
+            ("disabled", "text-gray-300"),
             ("white", "text-white"),
-            ("black", "text-black"),
-            ("success", "text-green-600"),
-            ("warning", "text-yellow-600"),
-            ("error", "text-red-600"),
-            ("info", "text-blue-600"),
+            ("black", "text-gray-900"),
+            ("success", "text-green-500"),
+            ("warning", "text-amber-500"),
+            ("error", "text-red-500"),
+            ("info", "text-blue-500"),
         ];
 
         for (color_str, expected_class) in colors {
@@ -374,7 +374,7 @@ mod tests {
 
         assert!(classes.contains("text-lg")); // size
         assert!(classes.contains("font-bold")); // weight
-        assert!(classes.contains("text-water-blue-500")); // color
+        assert!(classes.contains("text-jupiter-blue-500")); // color
         assert!(classes.contains("text-center")); // alignment
         assert!(classes.contains("truncate")); // truncation
         assert!(classes.contains("custom-class")); // custom
@@ -405,7 +405,7 @@ mod tests {
         assert!(caption_classes.contains("text-gray-600"));
 
         let overline_classes = create_text_styles().overline().color_str("auto").classes();
-        assert!(overline_classes.contains("text-gray-500"));
+        assert!(overline_classes.contains("text-gray-400"));
     }
 
     #[test]

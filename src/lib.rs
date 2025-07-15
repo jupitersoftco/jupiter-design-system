@@ -46,8 +46,8 @@ pub use crate::utils::*;
 /// Common imports for everyday usage
 pub mod prelude {
     pub use crate::builders::{
-        button_classes_from_strings, button_styles, card_classes_from_strings, card_styles,
-        interactive_button, interactive_element, interactive_input, text_classes_from_strings,
+        button_classes_from_strings, button_styles, card_styles, layout_styles,
+        selection_classes_from_strings, selection_styles, state_styles, text_classes_from_strings,
         text_styles, ButtonBuilder, ButtonState, ButtonStyles, ButtonVariant, CardStyles,
         InputBuilder, TextStyles,
     };
@@ -55,14 +55,14 @@ pub mod prelude {
     pub use crate::core::{Breakpoint, Color, Size, Spacing, Typography};
     pub use crate::patterns::{
         action_semantics, body_typography, caption_typography, card_pattern, code_typography,
-        destructive_button, focus_management, heading_typography, hero_button,
-        primary_button, secondary_button, title_typography, typography_pattern, ActionIntent,
-        ActionSemantics, ButtonPattern, CardElevation, CardInteraction, CardPattern, CardSpacing,
-        CardSurface, FocusManagement, InteractiveElement, InteractiveState, TypographyAlignment,
+        destructive_button, focus_management, heading_typography, hero_button, primary_button,
+        secondary_button, title_typography, typography_pattern, ActionIntent, ActionSemantics,
+        ButtonPattern, CardElevation, CardInteraction, CardPattern, CardSpacing, CardSurface,
+        FocusManagement, InteractiveElement, InteractiveState, TypographyAlignment,
         TypographyColor, TypographyHierarchy, TypographyOverflow, TypographyPattern,
         TypographySize, TypographyWeight,
     };
-    pub use crate::themes::{Theme, VibeTheme};
+    pub use crate::themes::{PsychedelicColors, PsychedelicTheme, Theme, VibeTheme};
     pub use crate::utils::DesignSystem;
 }
 

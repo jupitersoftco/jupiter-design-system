@@ -85,7 +85,7 @@ mod tests {
         // Branded
         let branded = CardStyles::new(colors.clone()).branded_surface().classes();
         assert!(branded.contains("bg-gradient-to-br"));
-        assert!(branded.contains("from-water-navy-900/80"));
+        assert!(branded.contains("from-jupiter-navy-900/80"));
         assert!(branded.contains("text-white"));
 
         // Glass
@@ -187,7 +187,7 @@ mod tests {
         let selected = CardStyles::new(colors.clone()).selected(true).classes();
         assert!(selected.contains("ring-2"));
         assert!(selected.contains("ring-offset-2"));
-        assert!(selected.contains("ring-water-blue-300"));
+        assert!(selected.contains("ring-jupiter-blue-300"));
 
         // Using shorthand
         let shorthand = CardStyles::new(colors.clone()).is_selected().classes();
@@ -399,7 +399,7 @@ mod tests {
         assert!(classes.contains("p-6")); // comfortable spacing
         assert!(classes.contains("cursor-pointer")); // clickable interaction
         assert!(classes.contains("focus:ring-2")); // clickable cards should have focus rings
-        assert!(!classes.contains("ring-water-blue-300")); // but not selection rings when not selected
+        assert!(!classes.contains("ring-jupiter-blue-300")); // but not selection rings when not selected
 
         // With selection
         let selected_classes = card_classes_from_strings(
@@ -414,7 +414,7 @@ mod tests {
         assert!(selected_classes.contains("shadow-sm")); // subtle elevation
         assert!(selected_classes.contains("p-5")); // standard spacing
         assert!(selected_classes.contains("hover:scale-101")); // hoverable interaction
-        assert!(selected_classes.contains("ring-water-blue-300")); // selected ring
+        assert!(selected_classes.contains("ring-jupiter-blue-300")); // selected ring
     }
 
     #[test]

@@ -26,11 +26,11 @@ Basic usage:
 
 ```rust
 use jupiter_design_system::prelude::*;
-use jupiter_design_system::core::color::{WaterWellnessColors, ColorProvider};
+use jupiter_design_system::core::color::{VibeColors, ColorProvider};
 use jupiter_design_system::components::button::Button;
 
 // Create a theme
-let colors = WaterWellnessColors::new();
+let colors = VibeColors::new();
 
 // Generate CSS classes
 let button_classes = Button::primary(colors)
@@ -38,7 +38,7 @@ let button_classes = Button::primary(colors)
     .full_width(true)
     .build();
 
-// Result: "inline-flex items-center justify-center font-medium ... bg-water-blue-500 text-white w-full"
+// Result: "inline-flex items-center justify-center font-medium ... bg-jupiter-blue-500 text-white w-full"
 ```
 
 ## 🎨 Design System Features
@@ -94,6 +94,7 @@ let button_classes = interactive_button(colors)
 ```
 
 **Replaces messy string formatting**:
+
 ```rust
 // ❌ Old way - messy and error-prone
 format!("{} {} focus:{} hover:{}",
@@ -165,17 +166,17 @@ pub trait ButtonBuilder {
 ### Default Vibe Theme
 
 ```rust
-let colors = WaterWellnessColors::new();
+let colors = VibeColors::new();
 
 // Brand colors
-colors.resolve_color(Color::Primary);    // "water-blue-500"
-colors.resolve_color(Color::Secondary);  // "water-green-500"
+colors.resolve_color(Color::Primary);    // "jupiter-blue-500"
+colors.resolve_color(Color::Secondary);  // "jupiter-green-500"
 ```
 
 ### Custom Theme
 
 ```rust
-let custom_colors = WaterWellnessColors::with_overrides(|palette| {
+let custom_colors = VibeColors::with_overrides(|palette| {
     palette.primary = "purple-600".to_string();
     palette.secondary = "pink-500".to_string();
 });
@@ -334,7 +335,7 @@ impl ColorProvider for DarkTheme {
 ```rust
 // Easy integration with web frameworks
 fn render_button(text: &str, variant: ButtonVariant) -> String {
-    let colors = WaterWellnessColors::new();
+    let colors = VibeColors::new();
     let classes = Button::new(colors)
         .variant(variant)
         .size(Size::Medium)

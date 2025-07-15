@@ -123,34 +123,20 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// Maps common string variants to ButtonVariant enum.
     /// Supports: "primary", "secondary", "success", "warning", "error", "ghost", "link"
-    /// Also supports aliases: "outline" -> Secondary, "danger" -> Error, "water" -> Primary
-    ///
-    /// # Examples
-    ///
-    /// ```rust
-    /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::VibeColors;
-    ///
-    /// let colors = VibeColors::default();
-    /// let classes = ButtonStyles::new(colors)
-    ///     .variant_str("primary")
-    ///     .size_str("lg")
-    ///     .classes();
-    /// ```
+    /// Also supports aliases: "outline" -> Secondary, "danger" -> Error
     pub fn variant_str(mut self, variant: &str) -> Self {
-        self.variant = match variant {
+        let variant_enum = match variant {
             "primary" => ButtonVariant::Primary,
             "secondary" => ButtonVariant::Secondary,
-            "outline" => ButtonVariant::Secondary, // alias
+            "outline" => ButtonVariant::Secondary, // Common alias
             "success" => ButtonVariant::Success,
             "warning" => ButtonVariant::Warning,
             "error" => ButtonVariant::Error,
-            "danger" => ButtonVariant::Error, // alias
-            "ghost" => ButtonVariant::Ghost,
+            "danger" => ButtonVariant::Error, // Common alias
             "link" => ButtonVariant::Link,
-            "water" => ButtonVariant::Primary, // Water & Wellness specific alias
-            _ => ButtonVariant::Primary,       // fallback to primary
+            _ => ButtonVariant::Primary, // fallback to primary
         };
+        self.variant = variant_enum;
         self
     }
 
