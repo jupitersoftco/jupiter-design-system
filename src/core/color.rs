@@ -128,34 +128,34 @@ impl Default for VibeColors {
     fn default() -> Self {
         Self {
             palette: ColorPalette {
-                // Brand colors - Jupiter Design System
-                primary: "jupiter-blue-500".to_string(),
-                secondary: "jupiter-green-500".to_string(),
-                accent: "jupiter-orange-500".to_string(),
+                // Brand colors - Psychedelic theme with vibrant colors
+                primary: "fuchsia-500".to_string(), // Electric magenta
+                secondary: "lime-400".to_string(),  // Electric lime
+                accent: "cyan-400".to_string(),     // Electric cyan
 
-                // Semantic colors
-                success: "green-500".to_string(),
-                warning: "amber-500".to_string(),
-                error: "red-500".to_string(),
-                info: "blue-500".to_string(),
+                // Semantic colors - Bold and vibrant
+                success: "emerald-400".to_string(), // Bright emerald
+                warning: "orange-400".to_string(),  // Electric orange
+                error: "rose-400".to_string(),      // Hot pink error
+                info: "violet-400".to_string(),     // Electric violet
 
-                // Neutral colors
-                surface: "white".to_string(),
-                background: "gray-50".to_string(),
-                foreground: "gray-900".to_string(),
-                border: "gray-200".to_string(),
+                // Neutral colors - High contrast
+                surface: "slate-900".to_string(), // Dark surface for contrast
+                background: "black".to_string(),  // Pure black background
+                foreground: "white".to_string(),  // Pure white text
+                border: "purple-500".to_string(), // Purple borders
 
-                // Text colors
-                text_primary: "gray-900".to_string(),
-                text_secondary: "gray-600".to_string(),
+                // Text colors - High contrast for readability
+                text_primary: "white".to_string(),
+                text_secondary: "gray-200".to_string(),
                 text_tertiary: "gray-400".to_string(),
-                text_inverse: "white".to_string(),
+                text_inverse: "black".to_string(),
 
-                // Interactive states
-                interactive: "jupiter-blue-500".to_string(),
-                interactive_hover: "jupiter-blue-600".to_string(),
-                interactive_active: "jupiter-blue-700".to_string(),
-                interactive_disabled: "gray-300".to_string(),
+                // Interactive states - Electric variations
+                interactive: "fuchsia-500".to_string(),
+                interactive_hover: "fuchsia-400".to_string(),
+                interactive_active: "fuchsia-600".to_string(),
+                interactive_disabled: "gray-600".to_string(),
             },
         }
     }
