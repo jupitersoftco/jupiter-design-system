@@ -69,6 +69,44 @@ let button_classes = Button::primary(colors)
 
 ### Component Builders
 
+#### Interactive Builders System
+
+**NEW**: Clean, fluent API for interactive components with pseudo-class states:
+
+```rust
+use jupiter_design_system::builders::interactive::*;
+
+// Clean input with interactive states
+let input_classes = interactive_input(colors)
+    .standard_style()
+    .hover().border_primary().shadow_md()
+    .focus().border_primary().ring_primary().outline_none()
+    .disabled().opacity_50().cursor_not_allowed()
+    .build();
+
+// Clean button with interactive states
+let button_classes = interactive_button(colors)
+    .primary()
+    .hover().darken().scale_105()
+    .focus().ring_primary()
+    .active().scale_95()
+    .build();
+```
+
+**Replaces messy string formatting**:
+```rust
+// ❌ Old way - messy and error-prone
+format!("{} {} focus:{} hover:{}",
+    base_classes, border_classes, focus_classes, hover_classes)
+
+// ✅ New way - clean and type-safe
+interactive_input(colors)
+    .standard_style()
+    .hover().border_primary()
+    .focus().ring_primary()
+    .build()
+```
+
 #### Button Component
 
 ```rust
@@ -310,6 +348,7 @@ fn render_button(text: &str, variant: ButtonVariant) -> String {
 
 - [x] **Core Design Tokens**: Colors, Spacing, Typography, Sizing
 - [x] **Button Component**: Full-featured button builder
+- [x] **Interactive Builders**: Clean fluent API for pseudo-class states (hover, focus, active, disabled)
 - [ ] **Card Component**: Flexible card layouts
 - [ ] **Text Component**: Typography with semantic scaling
 - [ ] **Form Components**: Input, Select, Checkbox, Radio

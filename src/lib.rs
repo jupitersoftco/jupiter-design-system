@@ -47,14 +47,15 @@ pub use crate::utils::*;
 pub mod prelude {
     pub use crate::builders::{
         button_classes_from_strings, button_styles, card_classes_from_strings, card_styles,
-        text_classes_from_strings, text_styles, ButtonState, ButtonStyles, ButtonVariant,
-        CardStyles, TextStyles,
+        interactive_button, interactive_element, interactive_input, text_classes_from_strings,
+        text_styles, ButtonBuilder, ButtonState, ButtonStyles, ButtonVariant, CardStyles,
+        InputBuilder, TextStyles,
     };
     pub use crate::core::color::{ColorProvider, WaterWellnessColors};
     pub use crate::core::{Breakpoint, Color, Size, Spacing, Typography};
     pub use crate::patterns::{
         action_semantics, body_typography, caption_typography, card_pattern, code_typography,
-        destructive_button, focus_management, heading_typography, hero_button, interactive_element,
+        destructive_button, focus_management, heading_typography, hero_button,
         primary_button, secondary_button, title_typography, typography_pattern, ActionIntent,
         ActionSemantics, ButtonPattern, CardElevation, CardInteraction, CardPattern, CardSpacing,
         CardSurface, FocusManagement, InteractiveElement, InteractiveState, TypographyAlignment,
