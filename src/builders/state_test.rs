@@ -4,11 +4,11 @@ mod tests {
         empty_state_styles, error_state_styles, loading_state_styles, state_classes_from_strings,
         state_styles, success_state_styles, StateStyles,
     };
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
     #[test]
     fn test_state_styles_new() {
-        let styles = StateStyles::new(WaterWellnessColors::default());
+        let styles = StateStyles::new(VibeColors::default());
         let classes = styles.classes();
 
         // Default should be informational, standard, center aligned, medium size
@@ -23,7 +23,7 @@ mod tests {
 
     #[test]
     fn test_intent_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test informational intent
         let classes = StateStyles::new(colors.clone()).informational().classes();
@@ -56,7 +56,7 @@ mod tests {
 
     #[test]
     fn test_prominence_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // All prominence levels should have the same layout classes
         let subtle = StateStyles::new(colors.clone()).subtle().classes();
@@ -71,7 +71,7 @@ mod tests {
 
     #[test]
     fn test_size_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test XS size
         let classes = StateStyles::new(colors.clone()).xs().classes();
@@ -101,7 +101,7 @@ mod tests {
 
     #[test]
     fn test_alignment_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test left alignment
         let classes = StateStyles::new(colors.clone()).left_aligned().classes();
@@ -121,7 +121,7 @@ mod tests {
 
     #[test]
     fn test_loading_variant_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test spinner variant
         let classes = StateStyles::new(colors.clone()).spinner().classes();
@@ -153,7 +153,7 @@ mod tests {
 
     #[test]
     fn test_fullscreen_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test fullscreen enabled
         let classes = StateStyles::new(colors.clone()).fullscreen(true).classes();
@@ -172,7 +172,7 @@ mod tests {
 
     #[test]
     fn test_custom_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test single custom class
         let classes = StateStyles::new(colors.clone())
@@ -199,7 +199,7 @@ mod tests {
 
     #[test]
     fn test_string_convenience_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test intent_str
         let classes = StateStyles::new(colors.clone())
@@ -234,7 +234,7 @@ mod tests {
 
     #[test]
     fn test_suggested_icon() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test different intents return appropriate icons
         let loading_style = StateStyles::new(colors.clone()).loading();
@@ -252,7 +252,7 @@ mod tests {
 
     #[test]
     fn test_suggested_action_text() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test error with recommended action
         let error_style = StateStyles::new(colors.clone())
@@ -277,7 +277,7 @@ mod tests {
 
     #[test]
     fn test_size_helper_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test content size classes
         let md_style = StateStyles::new(colors.clone()).md();
@@ -304,7 +304,7 @@ mod tests {
 
     #[test]
     fn test_convenience_functions() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test state_styles function
         let styles = state_styles(colors.clone());
@@ -333,7 +333,7 @@ mod tests {
 
     #[test]
     fn test_state_classes_from_strings() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = state_classes_from_strings(
             colors,
@@ -357,7 +357,7 @@ mod tests {
 
     #[test]
     fn test_complex_state_composition() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = StateStyles::new(colors)
             .error()
@@ -385,7 +385,7 @@ mod tests {
 
     #[test]
     fn test_class_deduplication() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = StateStyles::new(colors)
             .custom("flex")
@@ -399,7 +399,7 @@ mod tests {
 
     #[test]
     fn test_fallback_values() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test invalid string values fallback to defaults
         let classes = StateStyles::new(colors)
@@ -423,7 +423,7 @@ mod tests {
 
     #[test]
     fn test_build_alias() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let styles = StateStyles::new(colors).error().prominent().lg();
 

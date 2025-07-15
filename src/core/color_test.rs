@@ -2,7 +2,7 @@
 
 #[cfg(test)]
 mod tests {
-    use crate::core::color::{Color, ColorPalette, ColorProvider, WaterWellnessColors};
+    use crate::core::color::{Color, ColorPalette, ColorProvider, VibeColors};
 
     #[test]
     fn test_color_enum_variants() {
@@ -65,8 +65,8 @@ mod tests {
     }
 
     #[test]
-    fn test_water_wellness_colors_default() {
-        let colors = WaterWellnessColors::default();
+    fn test_vibe_colors_default() {
+        let colors = VibeColors::default();
         let palette = colors.palette();
 
         assert_eq!(palette.primary, "water-blue-500");
@@ -74,8 +74,8 @@ mod tests {
     }
 
     #[test]
-    fn test_water_wellness_colors_new() {
-        let colors = WaterWellnessColors::new();
+    fn test_vibe_colors_new() {
+        let colors = VibeColors::new();
         let palette = colors.palette();
 
         assert_eq!(palette.primary, "water-blue-500");
@@ -84,7 +84,7 @@ mod tests {
 
     #[test]
     fn test_color_provider_resolve_color() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test brand colors
         assert_eq!(colors.resolve_color(Color::Primary), "water-blue-500");
@@ -123,7 +123,7 @@ mod tests {
 
     #[test]
     fn test_color_provider_text_class() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         assert_eq!(colors.text_class(Color::Primary), "text-water-blue-500");
         assert_eq!(colors.text_class(Color::Success), "text-green-500");
@@ -133,7 +133,7 @@ mod tests {
 
     #[test]
     fn test_color_provider_bg_class() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         assert_eq!(colors.bg_class(Color::Primary), "bg-water-blue-500");
         assert_eq!(colors.bg_class(Color::Surface), "bg-white");
@@ -143,7 +143,7 @@ mod tests {
 
     #[test]
     fn test_color_provider_border_class() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         assert_eq!(colors.border_class(Color::Primary), "border-water-blue-500");
         assert_eq!(colors.border_class(Color::Border), "border-gray-200");
@@ -151,8 +151,8 @@ mod tests {
     }
 
     #[test]
-    fn test_water_wellness_colors_with_overrides() {
-        let colors = WaterWellnessColors::with_overrides(|palette| {
+    fn test_vibe_colors_with_overrides() {
+        let colors = VibeColors::with_overrides(|palette| {
             palette.primary = "custom-blue-500".to_string();
             palette.secondary = "custom-green-500".to_string();
         });

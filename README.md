@@ -162,7 +162,7 @@ pub trait ButtonBuilder {
 
 ## 🎭 Theme System
 
-### Default Water & Wellness Theme
+### Default Vibe Theme
 
 ```rust
 let colors = WaterWellnessColors::new();

@@ -117,11 +117,11 @@ pub trait ColorProvider {
 
 /// Default Water & Wellness color palette
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct WaterWellnessColors {
+pub struct VibeColors {
     palette: ColorPalette,
 }
 
-impl Default for WaterWellnessColors {
+impl Default for VibeColors {
     fn default() -> Self {
         Self {
             palette: ColorPalette {
@@ -157,13 +157,13 @@ impl Default for WaterWellnessColors {
     }
 }
 
-impl ColorProvider for WaterWellnessColors {
+impl ColorProvider for VibeColors {
     fn palette(&self) -> &ColorPalette {
         &self.palette
     }
 }
 
-impl WaterWellnessColors {
+impl VibeColors {
     /// Create a new Water & Wellness color provider
     pub fn new() -> Self {
         Self::default()
@@ -179,7 +179,7 @@ impl WaterWellnessColors {
 
 impl Default for ColorPalette {
     fn default() -> Self {
-        WaterWellnessColors::default().palette
+        VibeColors::default().palette
     }
 }
 

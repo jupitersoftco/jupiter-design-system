@@ -7,10 +7,10 @@
 //!
 //! ```rust
 //! use jupiter_design_system::prelude::*;
-//! use jupiter_design_system::core::color::WaterWellnessColors;
+//! use jupiter_design_system::core::color::VibeColors;
 //!
 //! // Create button styles with chainable API
-//! let button_classes = button_styles(WaterWellnessColors::default())
+//! let button_classes = button_styles(VibeColors::default())
 //!     .primary()
 //!     .large()
 //!     .full_width()
@@ -51,7 +51,7 @@ pub mod prelude {
         text_styles, ButtonBuilder, ButtonState, ButtonStyles, ButtonVariant, CardStyles,
         InputBuilder, TextStyles,
     };
-    pub use crate::core::color::{ColorProvider, WaterWellnessColors};
+    pub use crate::core::color::{ColorProvider, VibeColors};
     pub use crate::core::{Breakpoint, Color, Size, Spacing, Typography};
     pub use crate::patterns::{
         action_semantics, body_typography, caption_typography, card_pattern, code_typography,
@@ -62,7 +62,7 @@ pub mod prelude {
         TypographyColor, TypographyHierarchy, TypographyOverflow, TypographyPattern,
         TypographySize, TypographyWeight,
     };
-    pub use crate::themes::{Theme, WaterWellnessTheme};
+    pub use crate::themes::{Theme, VibeTheme};
     pub use crate::utils::DesignSystem;
 }
 
@@ -72,6 +72,6 @@ mod tests {
     fn test_prelude_imports() {
         // Basic smoke test to ensure prelude exports work
         use crate::prelude::*;
-        let _theme = WaterWellnessTheme::default();
+        let _theme = VibeTheme::default();
     }
 }

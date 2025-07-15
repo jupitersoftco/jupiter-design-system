@@ -3,10 +3,10 @@
 #[cfg(test)]
 mod tests {
     use crate::builders::card::{card_classes_from_strings, card_styles, CardStyles};
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
-    fn create_test_colors() -> WaterWellnessColors {
-        WaterWellnessColors::new()
+    fn create_test_colors() -> VibeColors {
+        VibeColors::new()
     }
 
     #[test]

@@ -4,11 +4,11 @@ mod tests {
         chip_selection_styles, filter_selection_styles, selection_classes_from_strings,
         selection_styles, tab_selection_styles, SelectionStyles,
     };
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
     #[test]
     fn test_selection_styles_new() {
-        let styles = SelectionStyles::new(WaterWellnessColors::default());
+        let styles = SelectionStyles::new(VibeColors::default());
         let container_classes = styles.clone().container_classes();
         let item_classes = styles.item_classes();
 
@@ -27,7 +27,7 @@ mod tests {
 
     #[test]
     fn test_behavior_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test no selection
         let _styles = SelectionStyles::new(colors.clone()).no_selection();
@@ -51,7 +51,7 @@ mod tests {
 
     #[test]
     fn test_state_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test unselected state
         let item_classes = SelectionStyles::new(colors.clone())
@@ -88,7 +88,7 @@ mod tests {
 
     #[test]
     fn test_display_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test button display
         let item_classes = SelectionStyles::new(colors.clone())
@@ -130,7 +130,7 @@ mod tests {
 
     #[test]
     fn test_layout_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test horizontal layout
         let container_classes = SelectionStyles::new(colors.clone())
@@ -165,7 +165,7 @@ mod tests {
 
     #[test]
     fn test_size_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test XS size
         let classes = SelectionStyles::new(colors.clone()).xs();
@@ -213,7 +213,7 @@ mod tests {
 
     #[test]
     fn test_interaction_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test subtle interaction
         let item_classes = SelectionStyles::new(colors.clone())
@@ -245,7 +245,7 @@ mod tests {
 
     #[test]
     fn test_feature_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test with counts enabled
         let styles = SelectionStyles::new(colors.clone()).with_counts(true);
@@ -271,7 +271,7 @@ mod tests {
 
     #[test]
     fn test_string_convenience_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test behavior_str
         let container_classes = SelectionStyles::new(colors.clone())
@@ -314,7 +314,7 @@ mod tests {
 
     #[test]
     fn test_custom_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test single custom class
         let container_classes = SelectionStyles::new(colors.clone())
@@ -333,7 +333,7 @@ mod tests {
 
     #[test]
     fn test_convenience_functions() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test selection_styles function
         let styles = selection_styles(colors.clone());
@@ -364,7 +364,7 @@ mod tests {
 
     #[test]
     fn test_selection_classes_from_strings() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let (container_classes, item_classes) = selection_classes_from_strings(
             colors,
@@ -392,7 +392,7 @@ mod tests {
 
     #[test]
     fn test_count_classes_with_states() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test count classes with selected state
         let count_classes = SelectionStyles::new(colors.clone())
@@ -413,7 +413,7 @@ mod tests {
 
     #[test]
     fn test_chip_display_size_variations() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test chip display with different sizes
         let xs_classes = SelectionStyles::new(colors.clone())
@@ -435,7 +435,7 @@ mod tests {
 
     #[test]
     fn test_disabled_interaction_override() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test that disabled state overrides interaction styles
         let item_classes = SelectionStyles::new(colors.clone())
@@ -448,7 +448,7 @@ mod tests {
 
     #[test]
     fn test_complex_selection_composition() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let styles = SelectionStyles::new(colors)
             .multiple_selection()
@@ -482,7 +482,7 @@ mod tests {
 
     #[test]
     fn test_class_deduplication() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let container_classes = SelectionStyles::new(colors)
             .custom("flex")
@@ -499,7 +499,7 @@ mod tests {
 
     #[test]
     fn test_fallback_values() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test invalid string values fallback to defaults
         let styles = SelectionStyles::new(colors)

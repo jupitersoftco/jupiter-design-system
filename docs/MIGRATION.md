@@ -32,7 +32,7 @@ Our core principle: **Every migration must maintain 100% backward compatibility*
 
 ```rust
 // Found: 281 lines with manual CSS generation
-variants: ["base", "elevated", "interactive", "water_wellness", "glass", "dark"]
+variants: ["base", "elevated", "interactive", "vibe", "glass", "dark"]
 props: variant, padding, hoverable, clickable, class
 css_logic: Manual string concatenation with conditional classes
 test_count: 25 tests covering all variants
@@ -45,7 +45,7 @@ test_count: 25 tests covering all variants
 "base" → CardSurface::Standard + CardElevation::Subtle
 "elevated" → CardSurface::Elevated + CardElevation::Raised
 "interactive" → CardInteraction::Hoverable
-"water_wellness" → CardSurface::Branded + CardElevation::Modal
+"vibe" → CardSurface::Branded + CardElevation::Modal
 ```
 
 ### **Phase 2: Pattern Implementation**
@@ -72,7 +72,7 @@ fn map_legacy_variant(variant: &str) -> (CardSurface, CardElevation, CardInterac
         "base" => (CardSurface::Standard, CardElevation::Subtle, CardInteraction::Static),
         "elevated" => (CardSurface::Elevated, CardElevation::Raised, CardInteraction::Static),
         "interactive" => (CardSurface::Elevated, CardElevation::Raised, CardInteraction::Hoverable),
-        "water_wellness" => (CardSurface::Branded, CardElevation::Modal, CardInteraction::Hoverable),
+        "vibe" => (CardSurface::Branded, CardElevation::Modal, CardInteraction::Hoverable),
         "glass" => (CardSurface::Glass, CardElevation::Floating, CardInteraction::Hoverable),
         "dark" => (CardSurface::Dark, CardElevation::Floating, CardInteraction::Static),
         _ => (CardSurface::Standard, CardElevation::Subtle, CardInteraction::Static),

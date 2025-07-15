@@ -80,10 +80,10 @@ pub enum CardInteraction {
 ///
 /// ```rust
 /// use jupiter_design_system::patterns::CardPattern;
-/// use jupiter_design_system::core::color::WaterWellnessColors;
+/// use jupiter_design_system::core::color::VibeColors;
 ///
 /// // Basic content card
-/// let content_card = CardPattern::new(WaterWellnessColors::default())
+/// let content_card = CardPattern::new(VibeColors::default())
 ///     .standard_surface()
 ///     .raised_elevation()
 ///     .standard_spacing()
@@ -91,7 +91,7 @@ pub enum CardInteraction {
 ///     .classes();
 ///
 /// // Interactive clickable card
-/// let clickable_card = CardPattern::new(WaterWellnessColors::default())
+/// let clickable_card = CardPattern::new(VibeColors::default())
 ///     .elevated_surface()
 ///     .floating_elevation()
 ///     .clickable_interaction()
@@ -99,7 +99,7 @@ pub enum CardInteraction {
 ///     .classes();
 ///
 /// // Branded hero card
-/// let hero_card = CardPattern::new(WaterWellnessColors::default())
+/// let hero_card = CardPattern::new(VibeColors::default())
 ///     .branded_surface()
 ///     .modal_elevation()
 ///     .spacious_spacing()
@@ -107,7 +107,7 @@ pub enum CardInteraction {
 ///     .classes();
 ///
 /// // Glass morphism card
-/// let glass_card = CardPattern::new(WaterWellnessColors::default())
+/// let glass_card = CardPattern::new(VibeColors::default())
 ///     .glass_surface()
 ///     .floating_elevation()
 ///     .hoverable_interaction()

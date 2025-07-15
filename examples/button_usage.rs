@@ -4,14 +4,14 @@
 //! to generate CSS classes for different button variants and states.
 
 use jupiter_design_system::builders::button::{button_styles, ButtonStyles};
-use jupiter_design_system::core::color::WaterWellnessColors;
+use jupiter_design_system::core::color::VibeColors;
 
 fn main() {
     println!("🔲 Jupiter Design System - Button Styling Example");
     println!("================================================");
 
     // Create a color provider
-    let colors = WaterWellnessColors::new();
+    let colors = VibeColors::new();
     println!("🎨 Created Water & Wellness color provider");
 
     // Example 1: Basic button variants
@@ -122,7 +122,7 @@ fn main() {
 
     // Example 6: Custom theme
     println!("\n🎨 Custom Theme Example:");
-    let custom_colors = WaterWellnessColors::with_overrides(|palette| {
+    let custom_colors = VibeColors::with_overrides(|palette| {
         palette.primary = "purple-600".to_string();
         palette.secondary = "pink-500".to_string();
     });
@@ -165,12 +165,12 @@ fn main() {
     // Example 9: Component comparison
     println!("\n📊 Component Comparison:");
     println!("  Same variant, different providers:");
-    let ww_button = ButtonStyles::new(WaterWellnessColors::new())
+    let ww_button = ButtonStyles::new(VibeColors::new())
         .primary()
         .classes();
     println!("    Water & Wellness: {}", ww_button);
 
-    let custom_button = ButtonStyles::new(WaterWellnessColors::with_overrides(|p| {
+    let custom_button = ButtonStyles::new(VibeColors::with_overrides(|p| {
         p.primary = "indigo-600".to_string();
     }))
     .primary()

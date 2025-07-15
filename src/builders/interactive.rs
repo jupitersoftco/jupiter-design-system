@@ -7,9 +7,9 @@
 //!
 //! ```rust
 //! use jupiter_design_system::builders::interactive::*;
-//! use jupiter_design_system::core::color::WaterWellnessColors;
+//! use jupiter_design_system::core::color::VibeColors;
 //!
-//! let colors = WaterWellnessColors::default();
+//! let colors = VibeColors::default();
 //! 
 //! // Clean input with interactive states
 //! let input_classes = interactive_input(colors.clone())
@@ -492,11 +492,11 @@ pub fn interactive_element<C: ColorProvider>(color_provider: C) -> InteractiveBa
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
     #[test]
     fn test_interactive_input() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
         let classes = interactive_input(colors)
             .base_style()
             .hover().border_primary().shadow_md()
@@ -512,7 +512,7 @@ mod tests {
 
     #[test]
     fn test_interactive_button() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
         let classes = interactive_button(colors)
             .primary()
             .hover().darken().scale_105()
@@ -528,7 +528,7 @@ mod tests {
 
     #[test]
     fn test_chaining_order_independence() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
         
         // Test different chaining orders produce same result
         let classes1 = interactive_input(colors.clone())

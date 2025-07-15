@@ -4,11 +4,11 @@ mod tests {
         text_clamp_style, text_classes_from_strings, text_element_from_hierarchy, text_styles,
         TextStyles,
     };
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
     // Helper function to create text styles with default color provider
-    fn create_text_styles() -> TextStyles<WaterWellnessColors> {
-        text_styles(WaterWellnessColors::default())
+    fn create_text_styles() -> TextStyles<VibeColors> {
+        text_styles(VibeColors::default())
     }
 
     #[test]
@@ -159,7 +159,7 @@ mod tests {
     fn test_text_classes_from_strings() {
         // Test with truncation (no line clamping)
         let classes = text_classes_from_strings(
-            WaterWellnessColors::default(),
+            VibeColors::default(),
             "title",
             Some("lg"),
             Some("medium"),
@@ -180,7 +180,7 @@ mod tests {
 
         // Test with line clamping (no truncation)
         let classes_with_clamp = text_classes_from_strings(
-            WaterWellnessColors::default(),
+            VibeColors::default(),
             "title",
             Some("lg"),
             Some("medium"),

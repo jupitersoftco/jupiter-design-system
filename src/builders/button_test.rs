@@ -5,10 +5,10 @@ mod tests {
     use crate::builders::button::{
         button_classes_from_strings, button_styles, ButtonState, ButtonStyles, ButtonVariant,
     };
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
-    fn create_test_colors() -> WaterWellnessColors {
-        WaterWellnessColors::new()
+    fn create_test_colors() -> VibeColors {
+        VibeColors::new()
     }
 
     #[test]

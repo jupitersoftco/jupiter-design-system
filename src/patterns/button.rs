@@ -18,31 +18,31 @@ use crate::patterns::{
 ///
 /// ```rust
 /// use jupiter_design_system::patterns::ButtonPattern;
-/// use jupiter_design_system::core::color::WaterWellnessColors;
+/// use jupiter_design_system::core::color::VibeColors;
 ///
 /// // Primary CTA button
-/// let cta_button = ButtonPattern::new(WaterWellnessColors::default())
+/// let cta_button = ButtonPattern::new(VibeColors::default())
 ///     .primary_action()
 ///     .hero_prominence()
 ///     .prominent_interaction()
 ///     .classes();
 ///
 /// // Destructive action button
-/// let delete_button = ButtonPattern::new(WaterWellnessColors::default())
+/// let delete_button = ButtonPattern::new(VibeColors::default())
 ///     .destructive_action()
 ///     .standard_prominence()
 ///     .disabled(true)
 ///     .classes();
 ///
 /// // Navigation menu item (button-like)
-/// let menu_item = ButtonPattern::new(WaterWellnessColors::default())
+/// let menu_item = ButtonPattern::new(VibeColors::default())
 ///     .navigation_action()
 ///     .tertiary_prominence()
 ///     .gentle_interaction()
 ///     .classes();
 ///
 /// // Link that acts like a button
-/// let button_link = ButtonPattern::new(WaterWellnessColors::default())
+/// let button_link = ButtonPattern::new(VibeColors::default())
 ///     .secondary_action()
 ///     .inline_context()
 ///     .custom_interaction("underline hover:no-underline")

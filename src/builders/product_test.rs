@@ -1,12 +1,12 @@
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
     use crate::patterns::product::*;
 
     #[test]
     fn test_product_builder_new() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
         let builder = ProductBuilder::new(colors);
 
         assert_eq!(builder.pattern().display, ProductDisplayPattern::ListItem);
@@ -42,7 +42,7 @@ mod tests {
 
     #[test]
     fn test_display_patterns() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let list_item = ProductBuilder::new(colors.clone()).list_item();
         assert_eq!(list_item.pattern().display, ProductDisplayPattern::ListItem);
@@ -62,7 +62,7 @@ mod tests {
 
     #[test]
     fn test_interaction_states() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let focused = ProductBuilder::new(colors.clone()).focused();
         assert_eq!(
@@ -91,7 +91,7 @@ mod tests {
 
     #[test]
     fn test_availability_states() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let available = ProductBuilder::new(colors.clone()).available();
         assert_eq!(
@@ -126,7 +126,7 @@ mod tests {
 
     #[test]
     fn test_prominence_levels() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let subtle = ProductBuilder::new(colors.clone()).subtle();
         assert_eq!(subtle.pattern().prominence, ProductProminence::Subtle);
@@ -143,7 +143,7 @@ mod tests {
 
     #[test]
     fn test_image_patterns() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let standard = ProductBuilder::new(colors.clone()).standard_image();
         assert_eq!(
@@ -169,7 +169,7 @@ mod tests {
 
     #[test]
     fn test_info_sections() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let basic = ProductBuilder::new(colors.clone()).basic_info();
         assert_eq!(
@@ -198,7 +198,7 @@ mod tests {
 
     #[test]
     fn test_price_patterns() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let standard = ProductBuilder::new(colors.clone()).standard_price();
         assert_eq!(
@@ -227,7 +227,7 @@ mod tests {
 
     #[test]
     fn test_actions() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let add_to_cart = ProductBuilder::new(colors.clone()).add_to_cart_action();
         assert!(add_to_cart
@@ -265,7 +265,7 @@ mod tests {
 
     #[test]
     fn test_badges() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let sale = ProductBuilder::new(colors.clone()).sale_badge();
         assert!(sale.pattern().badges.contains(&ProductBadgeType::Sale));
@@ -306,7 +306,7 @@ mod tests {
 
     #[test]
     fn test_variant_patterns() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let dropdown = ProductBuilder::new(colors.clone()).dropdown_variants();
         assert_eq!(
@@ -341,7 +341,7 @@ mod tests {
 
     #[test]
     fn test_custom_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let builder = ProductBuilder::new(colors)
             .custom_class("custom-1".to_string())
@@ -354,7 +354,7 @@ mod tests {
 
     #[test]
     fn test_chaining() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let builder = ProductBuilder::new(colors)
             .featured()
@@ -401,7 +401,7 @@ mod tests {
 
     #[test]
     fn test_classes_generation() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors).featured().prominent().classes();
         assert!(classes.contains("product-card"));
@@ -411,7 +411,7 @@ mod tests {
 
     #[test]
     fn test_container_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors.clone())
             .featured()
@@ -424,7 +424,7 @@ mod tests {
 
     #[test]
     fn test_image_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors.clone())
             .featured()
@@ -437,7 +437,7 @@ mod tests {
 
     #[test]
     fn test_info_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors.clone())
             .featured()
@@ -448,7 +448,7 @@ mod tests {
 
     #[test]
     fn test_actions_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors.clone())
             .featured()
@@ -461,7 +461,7 @@ mod tests {
 
     #[test]
     fn test_badges_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors.clone()).badges_classes();
         assert!(classes.contains("product-badges"));
@@ -475,7 +475,7 @@ mod tests {
 
     #[test]
     fn test_convenience_functions() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let product = product_styles(colors.clone());
         assert_eq!(product.pattern().display, ProductDisplayPattern::ListItem);
@@ -508,7 +508,7 @@ mod tests {
 
     #[test]
     fn test_duplicate_actions() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let builder = ProductBuilder::new(colors)
             .add_to_cart_action()
@@ -526,7 +526,7 @@ mod tests {
 
     #[test]
     fn test_duplicate_badges() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let builder = ProductBuilder::new(colors).sale_badge().sale_badge(); // Adding same badge twice
 
@@ -542,7 +542,7 @@ mod tests {
 
     #[test]
     fn test_pattern_suggestions() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let pattern = ProductBuilder::new(colors).featured().pattern();
 
@@ -554,7 +554,7 @@ mod tests {
 
     #[test]
     fn test_out_of_stock_styling() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors).out_of_stock().classes();
         assert!(classes.contains("product-card--out-of-stock"));
@@ -562,7 +562,7 @@ mod tests {
 
     #[test]
     fn test_loading_state_styling() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let classes = ProductBuilder::new(colors).loading().classes();
         assert!(classes.contains("product-card--loading"));
@@ -570,7 +570,7 @@ mod tests {
 
     #[test]
     fn test_multiple_info_sections() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let builder = ProductBuilder::new(colors).basic_info().extended_info(); // This should override the previous
 
@@ -582,7 +582,7 @@ mod tests {
 
     #[test]
     fn test_variant_pattern_override() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let builder = ProductBuilder::new(colors)
             .dropdown_variants()
@@ -596,7 +596,7 @@ mod tests {
 
     #[test]
     fn test_image_pattern_suggestions() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let standard = ProductBuilder::new(colors.clone())
             .standard_image()
@@ -623,7 +623,7 @@ mod tests {
 
     #[test]
     fn test_actions_spacing_by_display() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         let tile_classes = ProductBuilder::new(colors.clone()).tile().actions_classes();
         assert!(tile_classes.contains("gap-2"));

@@ -1,6 +1,6 @@
 //! Theme system for the design system
 
-use crate::core::color::WaterWellnessColors;
+use crate::core::color::VibeColors;
 
 /// Trait for theme providers
 pub trait Theme {
@@ -10,18 +10,18 @@ pub trait Theme {
 
 /// Water & Wellness theme
 #[derive(Debug, Clone, Default)]
-pub struct WaterWellnessTheme {
+pub struct VibeTheme {
     #[allow(dead_code)]
-    colors: WaterWellnessColors,
+    colors: VibeColors,
 }
 
-impl Theme for WaterWellnessTheme {
+impl Theme for VibeTheme {
     fn name(&self) -> &str {
         "Water & Wellness"
     }
 }
 
-impl WaterWellnessTheme {
+impl VibeTheme {
     pub fn new() -> Self {
         Self::default()
     }

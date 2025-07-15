@@ -3,11 +3,11 @@ mod tests {
     use crate::builders::layout::{
         card_content_styles, card_footer_styles, card_header_styles, layout_styles, LayoutStyles,
     };
-    use crate::core::color::WaterWellnessColors;
+    use crate::core::color::VibeColors;
 
     #[test]
     fn test_layout_styles_new() {
-        let styles = LayoutStyles::new(WaterWellnessColors::default());
+        let styles = LayoutStyles::new(VibeColors::default());
         let classes = styles.classes();
         assert!(classes.contains("p-4")); // Default MD spacing
         assert!(!classes.contains("border")); // No divider by default
@@ -15,7 +15,7 @@ mod tests {
 
     #[test]
     fn test_divider_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test no divider
         let classes = LayoutStyles::new(colors.clone())
@@ -59,7 +59,7 @@ mod tests {
 
     #[test]
     fn test_spacing_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test all spacing levels
         let classes = LayoutStyles::new(colors.clone()).spacing_none().classes();
@@ -86,7 +86,7 @@ mod tests {
 
     #[test]
     fn test_direction_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test vertical direction
         let classes = LayoutStyles::new(colors.clone())
@@ -107,7 +107,7 @@ mod tests {
 
     #[test]
     fn test_alignment_methods() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test start alignment
         let classes = LayoutStyles::new(colors.clone())
@@ -160,7 +160,7 @@ mod tests {
 
     #[test]
     fn test_custom_classes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test single custom class
         let classes = LayoutStyles::new(colors.clone())
@@ -190,7 +190,7 @@ mod tests {
 
     #[test]
     fn test_card_header_styles() {
-        let classes = card_header_styles(WaterWellnessColors::default()).classes();
+        let classes = card_header_styles(VibeColors::default()).classes();
         assert!(classes.contains("border-b"));
         assert!(classes.contains("border-gray-200"));
         assert!(classes.contains("p-4"));
@@ -198,7 +198,7 @@ mod tests {
 
     #[test]
     fn test_card_content_styles() {
-        let classes = card_content_styles(WaterWellnessColors::default()).classes();
+        let classes = card_content_styles(VibeColors::default()).classes();
         assert!(classes.contains("p-4"));
         assert!(classes.contains("space-y-4"));
         assert!(!classes.contains("border"));
@@ -206,7 +206,7 @@ mod tests {
 
     #[test]
     fn test_card_footer_styles() {
-        let classes = card_footer_styles(WaterWellnessColors::default()).classes();
+        let classes = card_footer_styles(VibeColors::default()).classes();
         assert!(classes.contains("border-t"));
         assert!(classes.contains("border-gray-200"));
         assert!(classes.contains("p-4"));
@@ -218,14 +218,14 @@ mod tests {
 
     #[test]
     fn test_layout_styles_function() {
-        let styles = layout_styles(WaterWellnessColors::default());
+        let styles = layout_styles(VibeColors::default());
         let classes = styles.classes();
         assert!(classes.contains("p-4")); // Default MD spacing
     }
 
     #[test]
     fn test_complex_layout_composition() {
-        let classes = LayoutStyles::new(WaterWellnessColors::default())
+        let classes = LayoutStyles::new(VibeColors::default())
             .divider_bottom()
             .spacing_lg()
             .direction_horizontal()
@@ -248,7 +248,7 @@ mod tests {
 
     #[test]
     fn test_class_deduplication() {
-        let classes = LayoutStyles::new(WaterWellnessColors::default())
+        let classes = LayoutStyles::new(VibeColors::default())
             .custom("p-4")
             .spacing_md() // Also adds p-4
             .classes();
@@ -260,7 +260,7 @@ mod tests {
 
     #[test]
     fn test_alignment_without_direction() {
-        let classes = LayoutStyles::new(WaterWellnessColors::default())
+        let classes = LayoutStyles::new(VibeColors::default())
             .alignment_center()
             .spacing_none()
             .classes();
@@ -273,7 +273,7 @@ mod tests {
 
     #[test]
     fn test_direction_with_alignment() {
-        let classes = LayoutStyles::new(WaterWellnessColors::default())
+        let classes = LayoutStyles::new(VibeColors::default())
             .direction_horizontal()
             .alignment_between()
             .spacing_none()
@@ -288,7 +288,7 @@ mod tests {
 
     #[test]
     fn test_empty_custom_classes() {
-        let classes = LayoutStyles::new(WaterWellnessColors::default())
+        let classes = LayoutStyles::new(VibeColors::default())
             .custom("")
             .custom_classes("")
             .custom_classes("  ")
@@ -303,7 +303,7 @@ mod tests {
 
     #[test]
     fn test_build_alias() {
-        let styles = LayoutStyles::new(WaterWellnessColors::default())
+        let styles = LayoutStyles::new(VibeColors::default())
             .divider_top()
             .spacing_sm();
 

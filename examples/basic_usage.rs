@@ -3,7 +3,7 @@
 //! This example demonstrates how to use the trait-based design system
 //! to generate CSS classes for styling components.
 
-use jupiter_design_system::core::color::{ColorProvider, WaterWellnessColors};
+use jupiter_design_system::core::color::{ColorProvider, VibeColors};
 use jupiter_design_system::prelude::*;
 
 fn main() {
@@ -11,11 +11,11 @@ fn main() {
     println!("==============================================");
 
     // Create a theme
-    let theme = WaterWellnessTheme::default();
+    let theme = VibeTheme::default();
     println!("📝 Created theme: {}", theme.name());
 
     // Create a color provider
-    let colors = WaterWellnessColors::new();
+    let colors = VibeColors::new();
     println!("🎨 Created Water & Wellness color provider");
 
     // Generate CSS classes for different colors
@@ -61,7 +61,7 @@ fn main() {
 
     // Demonstrate custom color provider
     println!("\n🎯 Custom Color Provider:");
-    let custom_colors = WaterWellnessColors::with_overrides(|palette| {
+    let custom_colors = VibeColors::with_overrides(|palette| {
         palette.primary = "custom-blue-600".to_string();
         palette.secondary = "custom-green-600".to_string();
     });

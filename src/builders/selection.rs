@@ -18,16 +18,16 @@ use crate::patterns::{
 ///
 /// ```rust
 /// use jupiter_design_system::builders::selection::SelectionStyles;
-/// use jupiter_design_system::core::color::WaterWellnessColors;
+/// use jupiter_design_system::core::color::VibeColors;
 ///
-/// let container_classes = SelectionStyles::new(WaterWellnessColors::default())
+/// let container_classes = SelectionStyles::new(VibeColors::default())
 ///     .single_selection()
 ///     .button_display()
 ///     .horizontal_layout()
 ///     .standard_interaction()
 ///     .container_classes();
 ///
-/// let item_classes = SelectionStyles::new(WaterWellnessColors::default())
+/// let item_classes = SelectionStyles::new(VibeColors::default())
 ///     .selected()
 ///     .button_display()
 ///     .md()

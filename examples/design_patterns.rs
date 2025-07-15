@@ -24,11 +24,11 @@
 //! - Represents the complete "button-ness" experience
 //! - Can be applied to any element that acts like a button
 
-use jupiter_design_system::core::color::WaterWellnessColors;
+use jupiter_design_system::core::color::VibeColors;
 use jupiter_design_system::patterns::*;
 
 fn main() {
-    let colors = WaterWellnessColors::default();
+    let colors = VibeColors::default();
 
     println!("=== Jupiter Design System - Abstract Design Patterns ===\n");
 
@@ -202,7 +202,7 @@ mod tests {
 
     #[test]
     fn test_interactive_elements() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test that interactive elements generate classes
         let interaction = interactive_element(colors)
@@ -219,7 +219,7 @@ mod tests {
 
     #[test]
     fn test_action_semantics() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test different action intents
         let primary = action_semantics(colors.clone()).primary().classes();
@@ -233,7 +233,7 @@ mod tests {
 
     #[test]
     fn test_focus_management() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test focus management
         let button_focus = focus_management(colors).button().classes();
@@ -244,7 +244,7 @@ mod tests {
 
     #[test]
     fn test_button_pattern_composition() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test that button patterns combine all concepts
         let primary_btn = primary_button(colors).classes();
@@ -262,7 +262,7 @@ mod tests {
 
     #[test]
     fn test_accessibility_attributes() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test accessibility attributes
         let btn = primary_button(colors).loading(true).disabled(false);
@@ -276,7 +276,7 @@ mod tests {
 
     #[test]
     fn test_semantic_info() {
-        let colors = WaterWellnessColors::default();
+        let colors = VibeColors::default();
 
         // Test semantic information extraction
         let btn = destructive_button(colors).disabled(true);

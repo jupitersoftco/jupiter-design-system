@@ -38,9 +38,9 @@ pub enum ButtonState {
 ///
 /// ```rust
 /// use jupiter_design_system::builders::button::ButtonStyles;
-/// use jupiter_design_system::core::color::WaterWellnessColors;
+/// use jupiter_design_system::core::color::VibeColors;
 ///
-/// let classes = ButtonStyles::new(WaterWellnessColors::default())
+/// let classes = ButtonStyles::new(VibeColors::default())
 ///     .primary()
 ///     .large()
 ///     .full_width()
@@ -129,9 +129,9 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    /// use jupiter_design_system::core::color::VibeColors;
     ///
-    /// let colors = WaterWellnessColors::default();
+    /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
     ///     .variant_str("primary")
     ///     .size_str("lg")
@@ -200,9 +200,9 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    /// use jupiter_design_system::core::color::VibeColors;
     ///
-    /// let colors = WaterWellnessColors::default();
+    /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
     ///     .variant_str("primary")
     ///     .size_str("lg")
@@ -259,9 +259,9 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    /// use jupiter_design_system::core::color::VibeColors;
     ///
-    /// let colors = WaterWellnessColors::default();
+    /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
     ///     .variant_str("primary")
     ///     .state_str("loading")
@@ -300,9 +300,9 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    /// use jupiter_design_system::core::color::VibeColors;
     ///
-    /// let colors = WaterWellnessColors::default();
+    /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
     ///     .primary()
     ///     .custom("shadow-xl")
@@ -322,9 +322,9 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    /// use jupiter_design_system::core::color::VibeColors;
     ///
-    /// let colors = WaterWellnessColors::default();
+    /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
     ///     .primary()
     ///     .custom_classes("shadow-xl transform hover:rotate-1")
@@ -346,9 +346,9 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::WaterWellnessColors;
+    /// use jupiter_design_system::core::color::VibeColors;
     ///
-    /// let colors = WaterWellnessColors::default();
+    /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
     ///     .primary()
     ///     .custom_vec(vec!["shadow-xl", "transform", "hover:rotate-1"])
@@ -485,9 +485,9 @@ pub fn button_styles<C: ColorProvider>(color_provider: C) -> ButtonStyles<C> {
 ///
 /// ```rust
 /// use jupiter_design_system::builders::button::button_classes_from_strings;
-/// use jupiter_design_system::core::color::WaterWellnessColors;
+/// use jupiter_design_system::core::color::VibeColors;
 ///
-/// let colors = WaterWellnessColors::default();
+/// let colors = VibeColors::default();
 /// let classes = button_classes_from_strings(
 ///     colors,
 ///     "primary",
