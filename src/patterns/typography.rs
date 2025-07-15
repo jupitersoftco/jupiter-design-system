@@ -402,18 +402,19 @@ impl<T: ColorProvider> TypographyPattern<T> {
 
     /// Get CSS classes for color
     fn get_color_classes(&self) -> String {
+        use crate::core::Color;
         match self.color {
-            TypographyColor::Primary => "text-water-blue-500".to_string(),
-            TypographyColor::Secondary => "text-water-green-500".to_string(),
-            TypographyColor::Accent => "text-water-orange-500".to_string(),
-            TypographyColor::Muted => "text-gray-500".to_string(),
-            TypographyColor::Disabled => "text-gray-400".to_string(),
-            TypographyColor::White => "text-white".to_string(),
-            TypographyColor::Black => "text-black".to_string(),
-            TypographyColor::Success => "text-green-600".to_string(),
-            TypographyColor::Warning => "text-yellow-600".to_string(),
-            TypographyColor::Error => "text-red-600".to_string(),
-            TypographyColor::Info => "text-blue-600".to_string(),
+            TypographyColor::Primary => self.color_provider.text_class(Color::Primary),
+            TypographyColor::Secondary => self.color_provider.text_class(Color::Secondary),
+            TypographyColor::Accent => self.color_provider.text_class(Color::Warning),
+            TypographyColor::Muted => self.color_provider.text_class(Color::TextSecondary),
+            TypographyColor::Disabled => self.color_provider.text_class(Color::InteractiveDisabled),
+            TypographyColor::White => self.color_provider.text_class(Color::TextInverse),
+            TypographyColor::Black => self.color_provider.text_class(Color::Foreground),
+            TypographyColor::Success => self.color_provider.text_class(Color::Success),
+            TypographyColor::Warning => self.color_provider.text_class(Color::Warning),
+            TypographyColor::Error => self.color_provider.text_class(Color::Error),
+            TypographyColor::Info => self.color_provider.text_class(Color::Info),
             TypographyColor::Auto => {
                 // Auto-select color based on hierarchy
                 match self.hierarchy {
@@ -423,10 +424,10 @@ impl<T: ColorProvider> TypographyPattern<T> {
                     | TypographyHierarchy::H4
                     | TypographyHierarchy::Body
                     | TypographyHierarchy::BodyLarge
-                    | TypographyHierarchy::BodySmall => "text-gray-900".to_string(),
-                    TypographyHierarchy::Caption => "text-gray-600".to_string(),
-                    TypographyHierarchy::Overline => "text-gray-500".to_string(),
-                    TypographyHierarchy::Code => "text-gray-800".to_string(),
+                    | TypographyHierarchy::BodySmall => self.color_provider.text_class(Color::TextPrimary),
+                    TypographyHierarchy::Caption => self.color_provider.text_class(Color::TextSecondary),
+                    TypographyHierarchy::Overline => self.color_provider.text_class(Color::TextTertiary),
+                    TypographyHierarchy::Code => self.color_provider.text_class(Color::TextPrimary),
                 }
             }
         }
