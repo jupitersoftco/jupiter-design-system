@@ -5,7 +5,7 @@ mod tests {
     use crate::builders::button::{
         button_classes_from_strings, button_styles, ButtonState, ButtonStyles, ButtonVariant,
     };
-    use crate::core::color::VibeColors;
+    use crate::themes::VibeColors;
 
     fn create_test_colors() -> VibeColors {
         VibeColors::new()
@@ -360,16 +360,11 @@ mod tests {
             .classes();
         assert!(danger.contains("bg-red-500")); // maps to error
 
-        let water = ButtonStyles::new(colors.clone())
-            .variant_str("water")
-            .classes();
-        assert!(water.contains("bg-jupiter-blue-500")); // maps to primary
-
         // Test fallback
         let unknown = ButtonStyles::new(colors.clone())
             .variant_str("unknown")
             .classes();
-        assert!(unknown.contains("bg-blue-500")); // fallback to primary
+        assert!(unknown.contains("bg-jupiter-blue-500")); // fallback to primary
     }
 
     #[test]

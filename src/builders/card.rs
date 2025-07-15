@@ -15,7 +15,7 @@ use crate::patterns::{CardElevation, CardInteraction, CardSpacing, CardSurface};
 ///
 /// ```rust
 /// use jupiter_design_system::builders::card::CardStyles;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// let classes = CardStyles::new(VibeColors::default())
 ///     .elevated_surface()
@@ -442,7 +442,7 @@ pub fn card_styles<C: ColorProvider>(color_provider: C) -> CardStyles<C> {
 ///
 /// ```rust
 /// use jupiter_design_system::builders::card::card_classes_from_strings;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// let colors = VibeColors::default();
 /// let classes = card_classes_from_strings(

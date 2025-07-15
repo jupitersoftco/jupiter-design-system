@@ -3,8 +3,9 @@
 //! This example demonstrates how to use the trait-based design system
 //! to generate CSS classes for styling components.
 
-use jupiter_design_system::core::color::{ColorProvider, VibeColors};
+use jupiter_design_system::core::color::ColorProvider;
 use jupiter_design_system::prelude::*;
+use jupiter_design_system::themes::VibeColors;
 
 fn main() {
     println!("🎨 Jupiter Design System - Basic Usage Example");

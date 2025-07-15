@@ -4,7 +4,7 @@ mod tests {
         empty_state_styles, error_state_styles, loading_state_styles, state_classes_from_strings,
         state_styles, success_state_styles, StateStyles,
     };
-    use crate::core::color::VibeColors;
+    use crate::themes::VibeColors;
 
     #[test]
     fn test_state_styles_new() {

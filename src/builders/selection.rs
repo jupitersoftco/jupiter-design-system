@@ -18,7 +18,7 @@ use crate::patterns::{
 ///
 /// ```rust
 /// use jupiter_design_system::builders::selection::SelectionStyles;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// let container_classes = SelectionStyles::new(VibeColors::default())
 ///     .single_selection()

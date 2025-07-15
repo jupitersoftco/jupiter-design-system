@@ -2,7 +2,8 @@
 
 #[cfg(test)]
 mod tests {
-    use crate::core::color::{Color, ColorPalette, ColorProvider, VibeColors};
+    use crate::core::color::{Color, ColorPalette, ColorProvider};
+    use crate::themes::VibeColors;
 
     #[test]
     fn test_color_enum_variants() {
@@ -70,7 +71,7 @@ mod tests {
         let colors = VibeColors::default();
         let palette = colors.palette();
 
-        // Test brand colors
+        // Test brand colors - Psychedelic theme
         assert_eq!(palette.primary, "jupiter-blue-500");
         assert_eq!(palette.secondary, "jupiter-green-500");
         assert_eq!(palette.accent, "jupiter-orange-500");
@@ -89,12 +90,12 @@ mod tests {
     fn test_color_provider_resolve_color() {
         let colors = VibeColors::default();
 
-        // Test brand colors
+        // Test brand colors - Psychedelic theme
         assert_eq!(colors.resolve_color(Color::Primary), "jupiter-blue-500");
         assert_eq!(colors.resolve_color(Color::Secondary), "jupiter-green-500");
         assert_eq!(colors.resolve_color(Color::Accent), "jupiter-orange-500");
 
-        // Test semantic colors
+        // Test semantic colors - Psychedelic theme
         assert_eq!(colors.resolve_color(Color::Success), "green-500");
         assert_eq!(colors.resolve_color(Color::Warning), "amber-500");
         assert_eq!(colors.resolve_color(Color::Error), "red-500");
@@ -112,7 +113,7 @@ mod tests {
         assert_eq!(colors.resolve_color(Color::TextTertiary), "gray-400");
         assert_eq!(colors.resolve_color(Color::TextInverse), "white");
 
-        // Test interactive states
+        // Test interactive states - Psychedelic theme
         assert_eq!(colors.resolve_color(Color::Interactive), "jupiter-blue-500");
         assert_eq!(
             colors.resolve_color(Color::InteractiveHover),
@@ -166,7 +167,7 @@ mod tests {
 
         assert_eq!(colors.resolve_color(Color::Primary), "custom-blue-500");
         assert_eq!(colors.resolve_color(Color::Secondary), "custom-green-500");
-        // Other colors should remain default
+        // Other colors should remain default (psychedelic theme)
         assert_eq!(colors.resolve_color(Color::Success), "green-500");
     }
 

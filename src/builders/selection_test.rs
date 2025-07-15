@@ -4,7 +4,7 @@ mod tests {
         chip_selection_styles, filter_selection_styles, selection_classes_from_strings,
         selection_styles, tab_selection_styles, SelectionStyles,
     };
-    use crate::core::color::VibeColors;
+    use crate::themes::VibeColors;
 
     #[test]
     fn test_selection_styles_new() {

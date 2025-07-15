@@ -80,7 +80,7 @@ pub enum CardInteraction {
 ///
 /// ```rust
 /// use jupiter_design_system::patterns::CardPattern;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// // Basic content card
 /// let content_card = CardPattern::new(VibeColors::default())

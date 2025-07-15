@@ -4,7 +4,7 @@
 //! to generate CSS classes for different button variants and states.
 
 use jupiter_design_system::builders::button::{button_styles, ButtonStyles};
-use jupiter_design_system::core::color::VibeColors;
+use jupiter_design_system::themes::VibeColors;
 
 fn main() {
     println!("🔲 Jupiter Design System - Button Styling Example");

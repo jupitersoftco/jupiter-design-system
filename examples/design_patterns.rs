@@ -24,8 +24,8 @@
 //! - Represents the complete "button-ness" experience
 //! - Can be applied to any element that acts like a button
 
-use jupiter_design_system::core::color::VibeColors;
 use jupiter_design_system::patterns::*;
+use jupiter_design_system::themes::VibeColors;
 
 fn main() {
     let colors = VibeColors::default();

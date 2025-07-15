@@ -38,7 +38,7 @@ pub enum ButtonState {
 ///
 /// ```rust
 /// use jupiter_design_system::builders::button::ButtonStyles;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// let classes = ButtonStyles::new(VibeColors::default())
 ///     .primary()
@@ -186,7 +186,7 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::VibeColors;
+    /// use jupiter_design_system::themes::VibeColors;
     ///
     /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
@@ -245,7 +245,7 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::VibeColors;
+    /// use jupiter_design_system::themes::VibeColors;
     ///
     /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
@@ -286,7 +286,7 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::VibeColors;
+    /// use jupiter_design_system::themes::VibeColors;
     ///
     /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
@@ -308,7 +308,7 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::VibeColors;
+    /// use jupiter_design_system::themes::VibeColors;
     ///
     /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
@@ -332,7 +332,7 @@ impl<C: ColorProvider> ButtonStyles<C> {
     ///
     /// ```rust
     /// use jupiter_design_system::builders::button::ButtonStyles;
-    /// use jupiter_design_system::core::color::VibeColors;
+    /// use jupiter_design_system::themes::VibeColors;
     ///
     /// let colors = VibeColors::default();
     /// let classes = ButtonStyles::new(colors)
@@ -471,7 +471,7 @@ pub fn button_styles<C: ColorProvider>(color_provider: C) -> ButtonStyles<C> {
 ///
 /// ```rust
 /// use jupiter_design_system::builders::button::button_classes_from_strings;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// let colors = VibeColors::default();
 /// let classes = button_classes_from_strings(

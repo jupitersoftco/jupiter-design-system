@@ -118,72 +118,11 @@ pub trait ColorProvider {
     }
 }
 
-/// Default Jupiter Design System color palette
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct VibeColors {
-    palette: ColorPalette,
-}
-
-impl Default for VibeColors {
-    fn default() -> Self {
-        Self {
-            palette: ColorPalette {
-                // Brand colors - Psychedelic theme with vibrant colors
-                primary: "fuchsia-500".to_string(), // Electric magenta
-                secondary: "lime-400".to_string(),  // Electric lime
-                accent: "cyan-400".to_string(),     // Electric cyan
-
-                // Semantic colors - Bold and vibrant
-                success: "emerald-400".to_string(), // Bright emerald
-                warning: "orange-400".to_string(),  // Electric orange
-                error: "rose-400".to_string(),      // Hot pink error
-                info: "violet-400".to_string(),     // Electric violet
-
-                // Neutral colors - High contrast
-                surface: "slate-900".to_string(), // Dark surface for contrast
-                background: "black".to_string(),  // Pure black background
-                foreground: "white".to_string(),  // Pure white text
-                border: "purple-500".to_string(), // Purple borders
-
-                // Text colors - High contrast for readability
-                text_primary: "white".to_string(),
-                text_secondary: "gray-200".to_string(),
-                text_tertiary: "gray-400".to_string(),
-                text_inverse: "black".to_string(),
-
-                // Interactive states - Electric variations
-                interactive: "fuchsia-500".to_string(),
-                interactive_hover: "fuchsia-400".to_string(),
-                interactive_active: "fuchsia-600".to_string(),
-                interactive_disabled: "gray-600".to_string(),
-            },
-        }
-    }
-}
-
-impl ColorProvider for VibeColors {
-    fn palette(&self) -> &ColorPalette {
-        &self.palette
-    }
-}
-
-impl VibeColors {
-    /// Create a new Jupiter color provider
-    pub fn new() -> Self {
-        Self::default()
-    }
-
-    /// Create a Jupiter color provider with custom overrides
-    pub fn with_overrides(overrides: impl Fn(&mut ColorPalette)) -> Self {
-        let mut palette = ColorPalette::default();
-        overrides(&mut palette);
-        Self { palette }
-    }
-}
-
 impl Default for ColorPalette {
     fn default() -> Self {
-        VibeColors::default().palette
+        use crate::core::color::ColorProvider;
+        use crate::themes::VibeColors;
+        VibeColors::default().palette().clone()
     }
 }
 

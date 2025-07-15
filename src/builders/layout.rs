@@ -15,7 +15,7 @@ use crate::patterns::{LayoutAlignment, LayoutDirection, LayoutDivider, LayoutSpa
 ///
 /// ```rust
 /// use jupiter_design_system::builders::layout::LayoutStyles;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// let classes = LayoutStyles::new(VibeColors::default())
 ///     .divider_bottom()

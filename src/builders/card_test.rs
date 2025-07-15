@@ -3,7 +3,7 @@
 #[cfg(test)]
 mod tests {
     use crate::builders::card::{card_classes_from_strings, card_styles, CardStyles};
-    use crate::core::color::VibeColors;
+    use crate::themes::VibeColors;
 
     fn create_test_colors() -> VibeColors {
         VibeColors::new()

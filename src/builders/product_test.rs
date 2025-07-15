@@ -1,8 +1,8 @@
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::core::color::VibeColors;
     use crate::patterns::product::*;
+    use crate::themes::VibeColors;
 
     #[test]
     fn test_product_builder_new() {

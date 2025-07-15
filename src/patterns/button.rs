@@ -18,7 +18,7 @@ use crate::patterns::{
 ///
 /// ```rust
 /// use jupiter_design_system::patterns::ButtonPattern;
-/// use jupiter_design_system::core::color::VibeColors;
+/// use jupiter_design_system::themes::VibeColors;
 ///
 /// // Primary CTA button
 /// let cta_button = ButtonPattern::new(VibeColors::default())

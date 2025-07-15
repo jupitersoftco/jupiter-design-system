@@ -3,7 +3,7 @@ mod tests {
     use crate::builders::layout::{
         card_content_styles, card_footer_styles, card_header_styles, layout_styles, LayoutStyles,
     };
-    use crate::core::color::VibeColors;
+    use crate::themes::VibeColors;
 
     #[test]
     fn test_layout_styles_new() {

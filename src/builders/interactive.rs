@@ -7,10 +7,10 @@
 //!
 //! ```rust
 //! use jupiter_design_system::builders::interactive::*;
-//! use jupiter_design_system::core::color::VibeColors;
+//! use jupiter_design_system::themes::VibeColors;
 //!
 //! let colors = VibeColors::default();
-//! 
+//!
 //! // Clean input with interactive states
 //! let input_classes = interactive_input(colors.clone())
 //!     .base_style()
@@ -56,7 +56,8 @@ impl<C: ColorProvider> InteractiveBase<C> {
 
     /// Add base classes that always apply
     pub fn base(mut self, classes: &str) -> Self {
-        self.base_classes.extend(classes.split_whitespace().map(|s| s.to_string()));
+        self.base_classes
+            .extend(classes.split_whitespace().map(|s| s.to_string()));
         self
     }
 
@@ -123,14 +124,19 @@ impl<C: ColorProvider> HoverBuilder<C> {
 
     /// Add arbitrary hover classes
     pub fn classes(mut self, classes: &str) -> Self {
-        self.base.hover_classes.extend(classes.split_whitespace().map(|s| s.to_string()));
+        self.base
+            .hover_classes
+            .extend(classes.split_whitespace().map(|s| s.to_string()));
         self
     }
 
     /// Set border to primary color
     pub fn border_primary(mut self) -> Self {
         self.base.hover_classes.push(
-            self.base.color_provider.border_class(Color::Primary).replace("border-", "")
+            self.base
+                .color_provider
+                .border_class(Color::Primary)
+                .replace("border-", ""),
         );
         self
     }
@@ -138,7 +144,10 @@ impl<C: ColorProvider> HoverBuilder<C> {
     /// Set background to primary color
     pub fn bg_primary(mut self) -> Self {
         self.base.hover_classes.push(
-            self.base.color_provider.bg_class(Color::Primary).replace("bg-", "")
+            self.base
+                .color_provider
+                .bg_class(Color::Primary)
+                .replace("bg-", ""),
         );
         self
     }
@@ -146,7 +155,10 @@ impl<C: ColorProvider> HoverBuilder<C> {
     /// Darken the background
     pub fn darken(mut self) -> Self {
         self.base.hover_classes.push(
-            self.base.color_provider.bg_class(Color::InteractiveHover).replace("bg-", "")
+            self.base
+                .color_provider
+                .bg_class(Color::InteractiveHover)
+                .replace("bg-", ""),
         );
         self
     }
@@ -202,14 +214,19 @@ impl<C: ColorProvider> FocusBuilder<C> {
 
     /// Add arbitrary focus classes
     pub fn classes(mut self, classes: &str) -> Self {
-        self.base.focus_classes.extend(classes.split_whitespace().map(|s| s.to_string()));
+        self.base
+            .focus_classes
+            .extend(classes.split_whitespace().map(|s| s.to_string()));
         self
     }
 
     /// Set border to primary color
     pub fn border_primary(mut self) -> Self {
         self.base.focus_classes.push(
-            self.base.color_provider.border_class(Color::Primary).replace("border-", "")
+            self.base
+                .color_provider
+                .border_class(Color::Primary)
+                .replace("border-", ""),
         );
         self
     }
@@ -224,7 +241,9 @@ impl<C: ColorProvider> FocusBuilder<C> {
     pub fn ring_primary(mut self) -> Self {
         self.base.focus_classes.push("ring-2".to_string());
         self.base.focus_classes.push("ring-offset-2".to_string());
-        let ring_color = self.base.color_provider
+        let ring_color = self
+            .base
+            .color_provider
             .resolve_color(Color::Primary)
             .replace("bg-", "ring-")
             .replace("-500", "-300");
@@ -265,7 +284,9 @@ impl<C: ColorProvider> ActiveBuilder<C> {
 
     /// Add arbitrary active classes
     pub fn classes(mut self, classes: &str) -> Self {
-        self.base.active_classes.extend(classes.split_whitespace().map(|s| s.to_string()));
+        self.base
+            .active_classes
+            .extend(classes.split_whitespace().map(|s| s.to_string()));
         self
     }
 
@@ -308,7 +329,9 @@ impl<C: ColorProvider> DisabledBuilder<C> {
 
     /// Add arbitrary disabled classes
     pub fn classes(mut self, classes: &str) -> Self {
-        self.base.disabled_classes.extend(classes.split_whitespace().map(|s| s.to_string()));
+        self.base
+            .disabled_classes
+            .extend(classes.split_whitespace().map(|s| s.to_string()));
         self
     }
 
@@ -320,7 +343,9 @@ impl<C: ColorProvider> DisabledBuilder<C> {
 
     /// Set cursor
     pub fn cursor_not_allowed(mut self) -> Self {
-        self.base.disabled_classes.push("cursor-not-allowed".to_string());
+        self.base
+            .disabled_classes
+            .push("cursor-not-allowed".to_string());
         self
     }
 
@@ -492,18 +517,24 @@ pub fn interactive_element<C: ColorProvider>(color_provider: C) -> InteractiveBa
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::core::color::VibeColors;
+    use crate::themes::VibeColors;
 
     #[test]
     fn test_interactive_input() {
         let colors = VibeColors::default();
         let classes = interactive_input(colors)
             .base_style()
-            .hover().border_primary().shadow_md()
-            .focus().border_primary().ring_primary().outline_none()
-            .disabled().opacity_50()
+            .hover()
+            .border_primary()
+            .shadow_md()
+            .focus()
+            .border_primary()
+            .ring_primary()
+            .outline_none()
+            .disabled()
+            .opacity_50()
             .build();
-        
+
         assert!(classes.contains("w-full"));
         assert!(classes.contains("hover:"));
         assert!(classes.contains("focus:"));
@@ -515,11 +546,15 @@ mod tests {
         let colors = VibeColors::default();
         let classes = interactive_button(colors)
             .primary()
-            .hover().darken().scale_105()
-            .focus().ring_primary()
-            .active().scale_95()
+            .hover()
+            .darken()
+            .scale_105()
+            .focus()
+            .ring_primary()
+            .active()
+            .scale_95()
             .build();
-        
+
         assert!(classes.contains("inline-flex"));
         assert!(classes.contains("hover:"));
         assert!(classes.contains("focus:"));
@@ -529,20 +564,24 @@ mod tests {
     #[test]
     fn test_chaining_order_independence() {
         let colors = VibeColors::default();
-        
+
         // Test different chaining orders produce same result
         let classes1 = interactive_input(colors.clone())
             .base_style()
-            .hover().border_primary()
-            .focus().ring_primary()
+            .hover()
+            .border_primary()
+            .focus()
+            .ring_primary()
             .build();
-        
+
         let classes2 = interactive_input(colors)
             .base_style()
-            .focus().ring_primary()
-            .hover().border_primary()
+            .focus()
+            .ring_primary()
+            .hover()
+            .border_primary()
             .build();
-        
+
         // Both should contain the same pseudo-class groups
         assert!(classes1.contains("hover:"));
         assert!(classes1.contains("focus:"));
